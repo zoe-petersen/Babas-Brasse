@@ -41,8 +41,8 @@ export function buildContentRouteModel(fixtures) {
     },
     hero: {
       eyebrow: "Content",
-      title: "Browse the magazine by section.",
-      dek: "A simple way into essays, reviews, short stories, opinion pieces, interviews, artwork, and everything else Babas & Brasse publishes."
+      title: "Find your next read.",
+      dek: "Come for the story that catches your eye. Stay for bold essays, sharp reviews, intimate fiction, and the voices shaping South African culture."
     },
     sections: {
       categories: categories.length > 0 ? {

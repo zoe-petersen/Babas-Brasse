@@ -2,27 +2,26 @@ import { getRouteByPath } from "../routes.js";
 
 export function getDashboardMetrics(fixtures) {
   return {
-    publishedArticles: fixtures.articles.filter((article) => article.status === "published").length,
-    drafts: fixtures.articles.filter((article) => article.status === "draft").length,
-    pendingComments: fixtures.comments.filter((comment) => comment.status === "pending").length,
-    pendingReviews: fixtures.reviews.filter((review) => review.status === "pending").length,
-    newContactSubmissions: fixtures.contactSubmissions.filter((submission) => submission.status === "new").length
+    publishedArticles: (fixtures.articles || []).filter((article) => article.status === "published").length,
+    drafts: (fixtures.articles || []).filter((article) => article.status === "draft").length,
+    pendingComments: (fixtures.comments || []).filter((comment) => comment.status === "pending").length,
+    newContactSubmissions: (fixtures.contactSubmissions || []).filter((submission) => submission.status === "new").length
   };
 }
 
 export function getRecentActivity(fixtures) {
-  const draftActivities = fixtures.articles
+  const draftActivities = (fixtures.articles || [])
     .filter((article) => article.status === "draft")
     .map((article) => ({
       actor: "Editor",
-      item: article.dek,
+      item: article.title,
       status: "Draft",
       timestamp: "Unscheduled",
       nextAction: "Continue editing",
-      href: "/admin/articles"
+      href: `/admin/articles?edit=${encodeURIComponent(article.slug || article.id)}`
     }));
 
-  const commentActivities = fixtures.comments
+  const commentActivities = (fixtures.comments || [])
     .filter((comment) => comment.status === "pending")
     .map((comment) => ({
       actor: comment.name,
@@ -30,10 +29,10 @@ export function getRecentActivity(fixtures) {
       status: "Pending comment",
       timestamp: "Moderation queue",
       nextAction: "Review comment",
-      href: "/admin/moderation"
+      href: "/admin/moderation?status=pending"
     }));
 
-  const contactActivities = fixtures.contactSubmissions
+  const contactActivities = (fixtures.contactSubmissions || [])
     .filter((submission) => submission.status === "new")
     .map((submission) => ({
       actor: submission.name,
@@ -41,7 +40,7 @@ export function getRecentActivity(fixtures) {
       status: "New contact submission",
       timestamp: submission.email,
       nextAction: "Open inbox",
-      href: "/admin/contact-submissions"
+      href: "/admin/contact-submissions?status=new"
     }));
 
   return [...draftActivities, ...commentActivities, ...contactActivities];
@@ -51,9 +50,8 @@ function metricItems(metrics) {
   return [
     { key: "publishedArticles", label: "Published", value: metrics.publishedArticles },
     { key: "drafts", label: "Drafts", value: metrics.drafts },
-    { key: "pendingComments", label: "Comments", value: metrics.pendingComments },
-    { key: "pendingReviews", label: "Reviews", value: metrics.pendingReviews },
-    { key: "newContactSubmissions", label: "Contact", value: metrics.newContactSubmissions }
+    { key: "pendingComments", label: "Awaiting moderation", value: metrics.pendingComments },
+    { key: "newContactSubmissions", label: "New submissions", value: metrics.newContactSubmissions }
   ];
 }
 
@@ -76,27 +74,26 @@ export function buildAdminDashboardRouteModel(fixtures) {
       loginHref: "/admin/login"
     },
     hero: {
-      eyebrow: "Admin Dashboard",
-      title: "Editorial operations overview.",
-      dek: "Authenticated editor access is required before publishing, moderation, media, or contact data is shown."
+      eyebrow: "Admin",
+      title: "Dashboard",
+      dek: "Everything that needs your attention, in one place."
     },
     sections: {
       stats: {
-        heading: "Publishing health",
+        heading: "At a glance",
         items: metricItems(metrics)
       },
       recentActivity: {
         heading: "Recent activity",
-        columns: ["actor", "item", "status", "timestamp", "next-action"],
+        columns: ["Actor", "Item", "Status", "Updated", "Action"],
         items: getRecentActivity(fixtures)
       },
       quickActions: {
         heading: "Quick actions",
         items: [
-          { href: "/admin/articles", label: "New article", body: "Create or continue editorial drafts." },
-          { href: "/admin/moderation", label: "Moderate", body: "Review pending comments and reviews." },
-          { href: "/admin/profiles-media", label: "Upload media", body: "Manage images, captions, credits, and alt text." },
-          { href: "/admin/contact-submissions", label: "Inbox", body: "Review new reader and contributor messages." }
+          { href: "/admin/articles?new=1", label: "Write an article", body: "Open a clean article editor and save a draft." },
+          { href: "/admin/moderation?status=pending", label: "Review comments", body: "Publish or deny comments awaiting moderation." },
+          { href: "/admin/contact-submissions?status=new", label: "Check submissions", body: "Open new messages from the contact form." }
         ]
       },
       states: {

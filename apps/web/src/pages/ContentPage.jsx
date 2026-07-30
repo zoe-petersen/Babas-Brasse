@@ -9,17 +9,13 @@ export function ContentPage({ fixtures = launchFixtures }) {
   return (
     <section className="figma-public-page figma-content-page" data-page="content" data-design-reference="content-directory-v1" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
       <header data-section="content-intro" className="figma-page-intro">
-        <p className="eyebrow">{hero.eyebrow}</p>
         <h1>{hero.title}</h1>
         <p>{hero.dek}</p>
       </header>
 
       <section data-section="content-categories" className="figma-content-section" data-state={sections.categories.state}>
         <div className="section-heading-row">
-          <div>
-            <p className="eyebrow">Ease of use</p>
-            <h2>{sections.categories.heading}</h2>
-          </div>
+          <h2>{sections.categories.heading}</h2>
           <Link to="/visceral-mag">View full archive</Link>
         </div>
 

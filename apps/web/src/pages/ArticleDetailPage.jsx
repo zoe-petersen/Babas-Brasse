@@ -63,22 +63,35 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
   return (
     <article className="figma-article-detail" data-page="article-detail" data-design-reference="article-detail-v4" data-generated={model.generatedFrom} data-slug={article.slug} data-prototype-file={model.route.prototypeFile}>
       <header data-section="article-hero" className="figma-article-hero">
-        <nav className="figma-breadcrumb" aria-label="Breadcrumb"><Link to="/visceral-mag">Visceral Mag</Link><span aria-hidden="true">/</span><span>{article.category.label}</span></nav>
-        <p className="eyebrow">{article.category.label}</p>
         <h1>{article.title}</h1>
         <p>{article.dek}</p>
-        <img src={article.featuredImage.url} alt={article.featuredImage.altText} />
+        <figure className="article-hero-image">
+          {article.featuredImage.type === "video"
+            ? <video src={article.featuredImage.url} controls preload="metadata">Your browser does not support video playback.</video>
+            : <img src={article.featuredImage.url} alt={article.featuredImage.altText} />}
+          {article.featuredImage.credit ? <figcaption>{article.featuredImage.type === "video" ? "Video" : "Image"}: {article.featuredImage.credit}</figcaption> : null}
+        </figure>
       </header>
 
       <section data-section="article-meta" className="figma-article-meta">
         <Link data-category={article.category.slug} to={article.category.href}>{article.category.label}</Link>
         <time dateTime={article.publishedAt}>{formatArticleDate(article.publishedAt)}</time>
-        <Link to={article.author.href}>{article.author.name}</Link>
       </section>
 
       <section data-section="article-body" className="figma-article-body">
         {article.bodyBlocks.map((block, index) => <p key={block} className={index === 0 ? "article-standfirst" : undefined}>{block}</p>)}
       </section>
+
+      <footer data-section="article-author" className="article-author-credit">
+        <p className="eyebrow">Written by</p>
+        <Link to={article.author.href}>
+          {article.author.image?.url ? <img src={article.author.image.url} alt="" /> : null}
+          <span>
+            <strong>{article.author.name}</strong>
+            {article.author.role ? <small>{article.author.role}</small> : null}
+          </span>
+        </Link>
+      </footer>
 
       <section data-section="related-articles" className="figma-content-section">
         <div className="section-heading-row">

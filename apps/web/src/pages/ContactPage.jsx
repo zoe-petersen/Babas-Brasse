@@ -90,7 +90,6 @@ export function ContactPage({ fixtures = launchFixtures }) {
   return (
     <section className="figma-public-page figma-contact-page" data-page="contact" data-design-reference="contact-dispatch-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
       <header data-section="contact-intro" className="figma-page-intro">
-        <p className="eyebrow">{hero.eyebrow}</p>
         <h1>{hero.title}</h1>
         <p>{hero.dek}</p>
         <div className="contact-inquiry-strip">

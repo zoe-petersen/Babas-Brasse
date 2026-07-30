@@ -59,6 +59,12 @@ export function buildProfileDetailRouteModel(fixtures, slug) {
     .filter((article) => article.status === "published" && article.authorProfileId === profile.id)
     .sort((left, right) => String(right.publishedAt || "").localeCompare(String(left.publishedAt || "")))
     .map((article) => publishedWork(fixtures, profile, article));
+  const profileMedia = fixtures.mediaItems
+    .filter((item) => item.authorProfileId === profile.id || item.profileId === profile.id)
+    .map((item) => ({
+      ...item,
+      href: `/media/${encodeURIComponent(item.id)}`
+    }));
 
   return {
     pageId: "profile-detail",
@@ -73,16 +79,7 @@ export function buildProfileDetailRouteModel(fixtures, slug) {
       socialLinks: Array.isArray(profile.socialLinks) ? profile.socialLinks : []
     },
     publishedWorks,
-    mediaItems: [
-      profileImage(profile),
-      ...publishedWorks.map((article) => article.featuredImage).filter(Boolean)
-    ].map((item, index) => ({
-      id: item.id || `profile-media-${index}`,
-      url: item.url,
-      altText: item.altText || `Media connected to ${profile.name}`,
-      title: item.title || profile.name,
-      caption: item.caption || profile.role
-    })),
+    mediaItems: profileMedia,
     submissions: Array.isArray(profile.submissions) ? profile.submissions : []
   };
 }

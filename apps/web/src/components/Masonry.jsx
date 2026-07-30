@@ -61,6 +61,17 @@ function preloadImages(urls) {
   })));
 }
 
+function formatMediaDate(value) {
+  if (!value) return "Date not listed";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("en-ZA", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  }).format(date);
+}
+
 export default function Masonry({
   items,
   variant = "editorial"
@@ -129,7 +140,7 @@ export default function Masonry({
           data-key={item.id}
           key={item.id}
           to={item.href}
-          aria-label={item.title + ", " + item.category}
+          aria-label={variant === "moodboard" ? `${item.title}, photographed by ${item.photographer}` : `${item.title}, ${item.category}`}
           style={{
             position: "absolute",
             top: 0,
@@ -140,16 +151,27 @@ export default function Masonry({
           }}
         >
           <img src={item.thumbnail} alt={item.alt} width="800" height={item.height} loading={index < 2 ? "eager" : "lazy"} />
-          <span className="home-media-masonry__body">
-            <span className="home-media-masonry__meta">
-              <span>{item.category}</span>
-              {item.publishedAt ? <time dateTime={item.publishedAt}>{item.publishedAt}</time> : null}
+          {variant === "moodboard" ? (
+            <span className="home-media-masonry__body photography-card-details">
+              <span className="photography-card-details__meta">
+                <span>{item.photographer}</span>
+                {item.publishedAt ? <time dateTime={item.publishedAt}>{formatMediaDate(item.publishedAt)}</time> : <span>Date not listed</span>}
+              </span>
+              <strong>{item.title}</strong>
+              <span>{item.description || "No description provided."}</span>
             </span>
-            <strong>{item.title}</strong>
-            {item.description ? <span>{item.description}</span> : null}
-            {item.credit ? <span className="home-media-masonry__credit">Credit: {item.credit}</span> : null}
-            <ArrowUpRight aria-hidden="true" />
-          </span>
+          ) : (
+            <span className="home-media-masonry__body">
+              <span className="home-media-masonry__meta">
+                <span>{item.category}</span>
+                {item.publishedAt ? <time dateTime={item.publishedAt}>{formatMediaDate(item.publishedAt)}</time> : null}
+              </span>
+              <strong>{item.title}</strong>
+              {item.description ? <span>{item.description}</span> : null}
+              {item.credit ? <span className="home-media-masonry__credit">Credit: {item.credit}</span> : null}
+              <ArrowUpRight aria-hidden="true" />
+            </span>
+          )}
         </Link>
       ))}
     </div>

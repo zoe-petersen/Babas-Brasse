@@ -90,8 +90,10 @@ export function buildArticleDetailRouteModel(fixtures, slug = "send-a-text-befor
       author: {
         id: article.authorProfileId,
         name: author.name,
+        role: author.role,
         slug: author.slug,
-        href: `/people/${author.slug}`
+        href: `/people/${author.slug}`,
+        image: author.image || null
       }
     },
     relatedArticles: fixtures.articles

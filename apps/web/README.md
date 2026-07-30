@@ -89,13 +89,12 @@ Admin/support routes include:
 - `/admin/login` - admin sign-in.
 - `/admin` - admin dashboard.
 - `/admin/articles` - article management.
-- `/admin/profiles-media` - profile and media metadata management.
-- `/admin/moderation` - comment and review moderation.
-- `/admin/contact-submissions` - contact inbox review.
+- `/admin/moderation` - reader comment approval and denial queue.
+- `/admin/contact-submissions` - contact request workflow with new, in-progress, and completed states.
 - `/404`, `/500`, and `/offline` - support states.
 
 Admin routes use `AdminGate` and require a valid same-origin API session cookie.
-Password recovery and binary uploads are intentionally not exposed as incomplete browser workflows.
+Password recovery is intentionally not exposed as an incomplete browser workflow. Article image and video uploads are handled inside the create/edit article modal.
 
 ## Data Flow
 

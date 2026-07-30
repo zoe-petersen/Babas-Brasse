@@ -14,6 +14,7 @@ apps/web/browser-qa-*.snapshot.txt
 apps/api/data/*.json
 !apps/api/data/editorial-seed.json
 apps/api/data/*.tmp
+apps/api/data/uploads/
 
 # OS/editor noise
 .DS_Store

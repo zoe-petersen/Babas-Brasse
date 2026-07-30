@@ -4,19 +4,13 @@ import { buildAboutRouteModel } from "./aboutRouteModel.js";
 
 export function AboutPage({ fixtures = launchFixtures }) {
   const model = buildAboutRouteModel(fixtures);
-  const { hero, sections } = model;
+  const { sections } = model;
 
   return (
     <section className="figma-public-page figma-about-page about-editorial-page" data-design-reference="about-brutalist-manifest" data-page="about" data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
-      <header data-section="about-intro" className="figma-page-intro about-editorial-hero">
-        <p className="eyebrow">{hero.eyebrow}</p>
-        <h1>{hero.title}</h1>
-        <p>{hero.dek}</p>
-      </header>
-
       <section data-section="about-who-we-are" className="about-editorial-section">
         <div className="about-editorial-copy">
-          <h2>Who are we?</h2>
+          <h1>Who we are</h1>
           {sections.overview.whoWeAre.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           <p className="about-editorial-standfirst">{sections.overview.collective}</p>
         </div>

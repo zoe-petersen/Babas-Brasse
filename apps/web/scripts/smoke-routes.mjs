@@ -15,7 +15,6 @@ const routes = [
   "/contact",
   "/admin",
   "/admin/articles",
-  "/admin/profiles-media",
   "/admin/moderation",
   "/admin/contact-submissions",
   "/admin/login",

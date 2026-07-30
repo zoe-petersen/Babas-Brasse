@@ -88,6 +88,7 @@ Optional:
 - `BABAS_DATABASE_SSL_REJECT_UNAUTHORIZED` - set to `0` only for temporary certificate troubleshooting.
 - `BABAS_ADMIN_TOKEN` - optional bearer token for trusted server automation.
 - `BABAS_WEB_DIST_PATH` - custom path to the frontend build; defaults to `apps/web/dist` in production.
+- `BABAS_UPLOAD_DIR` - durable directory used for admin article image/video uploads; defaults to `apps/api/data/uploads`.
 - `BABAS_LOGIN_RATE_LIMIT` - admin login attempts per rate window; default `5`.
 - `BABAS_PUBLIC_RATE_LIMIT` - public submission attempts per rate window; default `20`.
 - `BABAS_RATE_WINDOW_MS` - rate-limit window; default `900000`.
@@ -118,6 +119,7 @@ Public endpoints:
 - `POST /api/contact-submissions` - stores a contact message with status `new`.
 - `POST /api/articles/:slug/comments` - stores a pending comment.
 - `POST /api/articles/:slug/reviews` - stores a pending review.
+- `GET /api/media/uploads/:file` - serves article media uploaded through the admin editor.
 
 Admin endpoints require a valid admin session cookie or configured trusted bearer automation:
 
@@ -125,6 +127,7 @@ Admin endpoints require a valid admin session cookie or configured trusted beare
 - `GET /api/admin/session`
 - `POST /api/admin/logout`
 - `GET /api/admin/editorial`
+- `POST /api/admin/uploads` - accepts an authenticated JPG, PNG, WebP, GIF, MP4, or WebM body up to 12 MB.
 - `POST /api/admin/articles`
 - `PATCH /api/admin/articles/:id`
 - `DELETE /api/admin/articles/:id`

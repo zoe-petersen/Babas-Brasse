@@ -13,11 +13,12 @@ export function getFeaturedMediaItems(fixtures) {
       altText: item.altText,
       caption: item.caption,
       credit: item.credit,
+      photographer: item.photographer || item.credit || "Babas & Brasse",
       category: "Photography",
       thumbnail: item.url,
       alt: item.altText,
       description: item.caption,
-      publishedAt: article?.publishedAt || "",
+      publishedAt: article?.publishedAt || item.publishedAt || item.createdAt || "",
       href: `/media/${encodeURIComponent(item.id)}`,
       height: heights[index % heights.length]
     };

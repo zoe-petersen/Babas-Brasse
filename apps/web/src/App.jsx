@@ -25,7 +25,6 @@ const AuthLayout = lazy(() => import("./layouts/AuthLayout.jsx").then((module) =
 const AdminGate = lazy(() => import("./auth/AdminGate.jsx").then((module) => ({ default: module.AdminGate })));
 const AdminDashboardPage = lazy(() => import("./pages/AdminDashboardPage.jsx").then((module) => ({ default: module.AdminDashboardPage })));
 const ArticleManagementPage = lazy(() => import("./pages/ArticleManagementPage.jsx").then((module) => ({ default: module.ArticleManagementPage })));
-const ProfileMediaManagementPage = lazy(() => import("./pages/ProfileMediaManagementPage.jsx").then((module) => ({ default: module.ProfileMediaManagementPage })));
 const CommentsReviewsModerationPage = lazy(() => import("./pages/CommentsReviewsModerationPage.jsx").then((module) => ({ default: module.CommentsReviewsModerationPage })));
 const ContactSubmissionsPage = lazy(() => import("./pages/ContactSubmissionsPage.jsx").then((module) => ({ default: module.ContactSubmissionsPage })));
 const AdminLoginPage = lazy(() => import("./pages/AdminLoginPage.jsx").then((module) => ({ default: module.AdminLoginPage })));
@@ -45,7 +44,6 @@ function ShellContent({ route, fixtures }) {
   if (route.id === "contact") return <ContactPage fixtures={fixtures} />;
   if (route.id === "admin-dashboard") return <AdminDashboardPage fixtures={fixtures} />;
   if (route.id === "article-management") return <ArticleManagementPage fixtures={fixtures} />;
-  if (route.id === "profile-media-management") return <ProfileMediaManagementPage fixtures={fixtures} />;
   if (route.id === "moderation") return <CommentsReviewsModerationPage fixtures={fixtures} />;
   if (route.id === "contact-submissions") return <ContactSubmissionsPage fixtures={fixtures} />;
   if (route.id === "admin-login") return <AdminLoginPage />;

@@ -16,6 +16,7 @@ const {
 } = require("./security.js");
 
 const MAX_BODY_BYTES = 64 * 1024;
+const MAX_UPLOAD_BYTES = 12 * 1024 * 1024;
 const DEFAULT_RATE_WINDOW_MS = 15 * 60 * 1000;
 loadEnvFile();
 const MIME_TYPES = {
@@ -28,8 +29,10 @@ const MIME_TYPES = {
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
   ".png": "image/png",
+  ".mp4": "video/mp4",
   ".svg": "image/svg+xml",
   ".txt": "text/plain; charset=utf-8",
+  ".webm": "video/webm",
   ".webp": "image/webp",
   ".woff": "font/woff",
   ".woff2": "font/woff2"
@@ -134,6 +137,28 @@ function serveWebRequest(request, response, url, webRoot) {
   return true;
 }
 
+function serveUploadedMediaRequest(request, response, url, uploadRoot) {
+  if (!["GET", "HEAD"].includes(request.method) || !url.pathname.startsWith("/api/media/uploads/")) return false;
+  let fileName;
+  try {
+    fileName = decodeURIComponent(url.pathname.slice("/api/media/uploads/".length));
+  } catch {
+    sendJson(response, 400, { error: "Invalid media URL." });
+    return true;
+  }
+  if (!/^[a-z0-9-]+\.(?:gif|jpe?g|mp4|png|webm|webp)$/i.test(fileName)) {
+    sendJson(response, 404, { error: "Media not found." });
+    return true;
+  }
+  const candidate = path.resolve(uploadRoot, fileName);
+  if (!candidate.startsWith(`${path.resolve(uploadRoot)}${path.sep}`) || !fs.existsSync(candidate) || !fs.statSync(candidate).isFile()) {
+    sendJson(response, 404, { error: "Media not found." });
+    return true;
+  }
+  sendFile(request, response, candidate);
+  return true;
+}
+
 function isPublicSubmissionPath(pathname) {
   return pathname === "/api/contact-submissions"
     || /^\/api\/articles\/[^/]+\/(comments|reviews)$/.test(pathname);
@@ -173,6 +198,87 @@ function readJson(request) {
   });
 }
 
+function readBuffer(request, maxBytes = MAX_UPLOAD_BYTES) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    let size = 0;
+    let settled = false;
+    request.on("data", (chunk) => {
+      if (settled) return;
+      size += chunk.length;
+      if (size > maxBytes) {
+        settled = true;
+        const error = new Error("Media files must be 12 MB or smaller.");
+        error.statusCode = 413;
+        reject(error);
+        request.destroy();
+        return;
+      }
+      chunks.push(chunk);
+    });
+    request.on("end", () => {
+      if (settled) return;
+      settled = true;
+      resolve(Buffer.concat(chunks));
+    });
+    request.on("error", (error) => {
+      if (settled) return;
+      settled = true;
+      reject(error);
+    });
+  });
+}
+
+function decodeUploadHeader(value, fallback = "") {
+  const raw = String(value || "").trim();
+  if (!raw) return fallback;
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return raw;
+  }
+}
+
+async function saveAdminUpload(request, uploadRoot) {
+  const contentType = String(request.headers["content-type"] || "").split(";")[0].trim().toLowerCase();
+  const types = {
+    "image/gif": { extension: ".gif", type: "image" },
+    "image/jpeg": { extension: ".jpg", type: "image" },
+    "image/png": { extension: ".png", type: "image" },
+    "image/webp": { extension: ".webp", type: "image" },
+    "video/mp4": { extension: ".mp4", type: "video" },
+    "video/webm": { extension: ".webm", type: "video" }
+  };
+  const mediaType = types[contentType];
+  if (!mediaType) {
+    const error = new Error("Upload a JPG, PNG, WebP, GIF, MP4, or WebM file.");
+    error.statusCode = 422;
+    throw error;
+  }
+  const body = await readBuffer(request);
+  if (!body.length) {
+    const error = new Error("The uploaded media file is empty.");
+    error.statusCode = 422;
+    throw error;
+  }
+  const id = `upload-${crypto.randomUUID()}`;
+  const fileName = `${id}${mediaType.extension}`;
+  fs.mkdirSync(uploadRoot, { recursive: true, mode: 0o700 });
+  fs.writeFileSync(path.join(uploadRoot, fileName), body, { flag: "wx", mode: 0o600 });
+  const originalName = decodeUploadHeader(request.headers["x-file-name"], fileName).slice(0, 240);
+  const title = decodeUploadHeader(request.headers["x-media-title"], originalName).slice(0, 240) || originalName;
+  const altText = decodeUploadHeader(request.headers["x-alt-text"], title).slice(0, 500) || title;
+  return {
+    id,
+    title,
+    type: mediaType.type,
+    url: `/api/media/uploads/${fileName}`,
+    altText,
+    caption: title,
+    credit: "Babas & Brasse admin upload"
+  };
+}
+
 function tokensMatch(provided, expected) {
   const providedBuffer = Buffer.from(String(provided || ""));
   const expectedBuffer = Buffer.from(String(expected || ""));
@@ -206,7 +312,7 @@ function adminListOptions(url) {
   };
 }
 
-async function handleAdminRequest(request, response, url, store, adminAuth) {
+async function handleAdminRequest(request, response, url, store, adminAuth, uploadRoot) {
   requireAdmin(request, adminAuth);
 
   if (request.method === "GET" && url.pathname === "/api/admin/editorial") {
@@ -226,6 +332,11 @@ async function handleAdminRequest(request, response, url, store, adminAuth) {
 
   if (request.method === "GET" && url.pathname === "/api/admin/reviews") {
     sendJson(response, 200, { items: await store.listReviews(adminListOptions(url)) });
+    return true;
+  }
+
+  if (request.method === "POST" && url.pathname === "/api/admin/uploads") {
+    sendJson(response, 201, await saveAdminUpload(request, uploadRoot));
     return true;
   }
 
@@ -330,6 +441,7 @@ function createApiServer(options = {}) {
     bearerToken: adminToken
   });
   const webRoot = options.webRoot || environment.BABAS_WEB_DIST_PATH || (productionConfig.production ? path.join(__dirname, "..", "web", "dist") : "");
+  const uploadRoot = path.resolve(options.uploadRoot || environment.BABAS_UPLOAD_DIR || path.join(__dirname, "data", "uploads"));
   if (productionConfig.production && !fs.existsSync(path.join(webRoot, "index.html"))) {
     throw new Error("Production web build is missing. Run npm.cmd --prefix apps/web run build or set BABAS_WEB_DIST_PATH.");
   }
@@ -364,6 +476,8 @@ function createApiServer(options = {}) {
     });
 
     try {
+      if (serveUploadedMediaRequest(request, response, url, uploadRoot)) return;
+
       if (request.method === "GET" && url.pathname === "/api/health") {
         await store.ready;
         const storage = typeof store.healthCheck === "function" ? await store.healthCheck() : { storage: "json" };
@@ -428,7 +542,7 @@ function createApiServer(options = {}) {
       }
 
       if (url.pathname.startsWith("/api/admin/")) {
-        await handleAdminRequest(request, response, url, store, adminAuth);
+        await handleAdminRequest(request, response, url, store, adminAuth, uploadRoot);
         return;
       }
 

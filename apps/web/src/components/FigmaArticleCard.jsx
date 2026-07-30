@@ -15,7 +15,7 @@ export function FigmaArticleCard({ article, featured = false, compact = false, s
     return null;
   }
 
-  const image = article.featuredImage;
+  const media = article.featuredImage;
   const category = article.category?.label || article.categoryId || "Babas & Brasse";
   const categorySlug = article.category?.slug || article.categoryId || "article";
   const author = article.author?.name || "Babas & Brasse";
@@ -24,9 +24,11 @@ export function FigmaArticleCard({ article, featured = false, compact = false, s
 
   return (
     <article className={classes} data-article={article.slug} data-status={article.status} data-category={categorySlug}>
-      {image ? (
+      {media ? (
         <a className="article-card__media" href={article.href} aria-label={`Read ${article.title}`}>
-          <img src={image.url} alt={image.altText || article.title} />
+          {media.type === "video"
+            ? <video src={media.url} muted preload="metadata" aria-label={media.altText || article.title} />
+            : <img src={media.url} alt={media.altText || article.title} />}
         </a>
       ) : null}
       <div className="article-card__body">
@@ -38,7 +40,7 @@ export function FigmaArticleCard({ article, featured = false, compact = false, s
           <span aria-hidden="true">/</span>
           <span>{formatDate(article.publishedAt)}</span>
         </p>
-        {showCredit && image?.credit ? <p className="media-credit">Image credit: {image.credit}</p> : null}
+        {showCredit && media?.credit ? <p className="media-credit">{media.type === "video" ? "Video" : "Image"} credit: {media.credit}</p> : null}
       </div>
     </article>
   );

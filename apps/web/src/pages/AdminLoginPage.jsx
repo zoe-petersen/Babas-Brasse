@@ -40,15 +40,21 @@ export function AdminLoginPage() {
       <aside className="stitch-login-manifesto" aria-label="Babas and Brasse editorial access">
         <div className="stitch-login-lockup">
           <span className="stitch-login-monogram">B/B</span>
-          <p>Babas &amp; Brasse</p>
+          <div>
+            <p className="stitch-login-brand-title">Babas &amp; Brasse</p>
+            <p className="stitch-login-brand-subtitle">Editorial workspace</p>
+          </div>
         </div>
         <div className="stitch-login-statement">
-          <LockKeyhole size={42} strokeWidth={1.5} aria-hidden="true" />
+          <LockKeyhole size={40} strokeWidth={1.4} aria-hidden="true" />
           <p>Private</p>
           <p>Editorial</p>
           <p>Access</p>
         </div>
-        <p className="stitch-login-edition">Johannesburg / 2026</p>
+        <div className="stitch-login-meta">
+          <span>Protected</span>
+          <span>Secure sign-in</span>
+        </div>
       </aside>
 
       <div className="stitch-login-stage">
@@ -56,46 +62,49 @@ export function AdminLoginPage() {
           <p className="eyebrow"><ShieldCheck size={15} aria-hidden="true" /> Admin only</p>
           <h1>{model.hero.title}</h1>
           <p>{model.accessCopy.body}</p>
+          <p className="stitch-login-caption">Use your private workspace credentials to continue.</p>
         </div>
 
-        <form className="stitch-login-form" onSubmit={handleSubmit} data-form={model.form.id} noValidate>
-          {model.form.fields.map((field) => {
-            const isPassword = field.type === "password";
-            return (
-              <label key={field.name} htmlFor={field.id}>
-                <span>{field.label}</span>
-                <span className={isPassword ? "stitch-password-field" : undefined}>
-                  <input
-                    id={field.id}
-                    name={field.name}
-                    type={isPassword && showPassword ? "text" : field.type}
-                    autoComplete={field.autocomplete}
-                    aria-invalid={status === "error" ? "true" : undefined}
-                    required
-                  />
-                  {isPassword ? (
-                    <button
-                      className="stitch-password-toggle"
-                      type="button"
-                      aria-label={showPassword ? "Hide password" : "Show password"}
-                      aria-pressed={showPassword}
-                      onClick={() => setShowPassword((visible) => !visible)}
-                    >
-                      {showPassword ? <EyeOff aria-hidden="true" /> : <Eye aria-hidden="true" />}
-                    </button>
-                  ) : null}
-                </span>
-              </label>
-            );
-          })}
-          <button className="stitch-login-submit" type="submit" disabled={status === "submitting"}>
-            <span>{status === "submitting" ? "Signing in..." : model.form.submitLabel}</span>
-            <ArrowRight aria-hidden="true" />
-          </button>
-          <p className="stitch-login-status" data-form-status={status} aria-live="polite">
-            {status === "error" ? "The email or password is incorrect, or admin access is not configured." : ""}
-          </p>
-        </form>
+        <div className="stitch-login-form-card">
+          <form className="stitch-login-form" onSubmit={handleSubmit} data-form={model.form.id} noValidate>
+            {model.form.fields.map((field) => {
+              const isPassword = field.type === "password";
+              return (
+                <label key={field.name} htmlFor={field.id}>
+                  <span>{field.label}</span>
+                  <span className={isPassword ? "stitch-password-field" : undefined}>
+                    <input
+                      id={field.id}
+                      name={field.name}
+                      type={isPassword && showPassword ? "text" : field.type}
+                      autoComplete={field.autocomplete}
+                      aria-invalid={status === "error" ? "true" : undefined}
+                      required
+                    />
+                    {isPassword ? (
+                      <button
+                        className="stitch-password-toggle"
+                        type="button"
+                        aria-label={showPassword ? "Hide password" : "Show password"}
+                        aria-pressed={showPassword}
+                        onClick={() => setShowPassword((visible) => !visible)}
+                      >
+                        {showPassword ? <EyeOff aria-hidden="true" /> : <Eye aria-hidden="true" />}
+                      </button>
+                    ) : null}
+                  </span>
+                </label>
+              );
+            })}
+            <button className="stitch-login-submit" type="submit" disabled={status === "submitting"}>
+              <span>{status === "submitting" ? "Signing in..." : model.form.submitLabel}</span>
+              <ArrowRight aria-hidden="true" />
+            </button>
+            <p className="stitch-login-status" data-form-status={status} aria-live="polite">
+              {status === "error" ? "The email or password is incorrect, or admin access is not configured." : ""}
+            </p>
+          </form>
+        </div>
 
         <div className="stitch-login-footer">
           <p><ShieldCheck size={16} aria-hidden="true" /> Protected administrator session</p>

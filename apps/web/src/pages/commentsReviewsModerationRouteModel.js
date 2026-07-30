@@ -1,24 +1,52 @@
 import { getRouteByPath } from "../routes.js";
 
-function findById(items, id) {
-  return items.find((item) => item.id === id) || null;
+function getArticleContext(fixtures, articleId) {
+  const article = fixtures.articles.find((item) => item.id === articleId || item.slug === articleId);
+  const category = article
+    ? fixtures.categories.find((item) => item.id === article.categoryId || item.slug === article.categoryId)
+    : null;
+  return article ? {
+    title: article.title,
+    slug: article.slug,
+    href: `/visceral-mag/${article.slug}`,
+    category: category?.label || "Uncategorised",
+    categoryId: category?.id || article.categoryId || ""
+  } : {
+    title: "Unknown article",
+    slug: "",
+    href: "/admin/articles",
+    category: "Uncategorised",
+    categoryId: ""
+  };
 }
 
-function getArticleContext(fixtures, articleId) {
-  const article = findById(fixtures.articles, articleId);
-  return article ? { title: article.title, href: `/visceral-mag/${article.slug}` } : { title: "Unknown article", href: "/admin/articles" };
+function formatDate(value) {
+  if (!value) return "Date unavailable";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("en-ZA", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  }).format(date);
 }
 
 export function getModerationItems(fixtures) {
-  const comments = fixtures.comments.map((comment) => {
-    const article = getArticleContext(fixtures, comment.articleId);
-    return { id: comment.id, type: "comment", author: comment.name, body: comment.body, status: comment.status, articleTitle: article.title, articleHref: article.href, date: "Moderation queue", rating: null };
+  return fixtures.comments.map((comment) => {
+    const article = getArticleContext(fixtures, comment.articleId || comment.articleSlug);
+    return {
+      id: comment.id,
+      author: comment.name,
+      body: comment.body,
+      status: comment.status,
+      articleTitle: article.title,
+      articleSlug: article.slug,
+      articleHref: article.href,
+      category: article.category,
+      categoryId: article.categoryId,
+      date: formatDate(comment.createdAt)
+    };
   });
-  const reviews = fixtures.reviews.map((review) => {
-    const article = getArticleContext(fixtures, review.articleId);
-    return { id: review.id, type: "review", author: review.name, body: review.body, status: review.status, articleTitle: article.title, articleHref: article.href, date: "Moderation queue", rating: review.rating };
-  });
-  return [...comments, ...reviews];
 }
 
 export function getModerationStats(fixtures) {
@@ -27,29 +55,16 @@ export function getModerationStats(fixtures) {
     totalItems: items.length,
     pendingItems: items.filter((item) => item.status === "pending").length,
     approvedItems: items.filter((item) => item.status === "approved").length,
-    rejectedItems: items.filter((item) => item.status === "rejected").length,
-    comments: items.filter((item) => item.type === "comment").length,
-    reviews: items.filter((item) => item.type === "review").length
+    rejectedItems: items.filter((item) => item.status === "rejected").length
   };
 }
 
 function metricItems(stats) {
   return [
-    { key: "totalItems", label: "Total", value: stats.totalItems },
-    { key: "pendingItems", label: "Pending", value: stats.pendingItems },
-    { key: "approvedItems", label: "Approved", value: stats.approvedItems },
-    { key: "rejectedItems", label: "Rejected", value: stats.rejectedItems },
-    { key: "comments", label: "Comments", value: stats.comments },
-    { key: "reviews", label: "Reviews", value: stats.reviews }
-  ];
-}
-
-function queueFilters(fixtures) {
-  return [
-    { name: "status", label: "Status", options: ["all", "pending", "approved", "rejected"] },
-    { name: "type", label: "Type", options: ["all", "comment", "review"] },
-    { name: "article", label: "Article", options: ["all", ...fixtures.articles.map((article) => article.slug)] },
-    { name: "date", label: "Date", type: "date" }
+    { key: "totalItems", label: "All comments", value: stats.totalItems },
+    { key: "pendingItems", label: "Needs review", value: stats.pendingItems },
+    { key: "approvedItems", label: "Published", value: stats.approvedItems },
+    { key: "rejectedItems", label: "Denied", value: stats.rejectedItems }
   ];
 }
 
@@ -57,8 +72,6 @@ export function buildCommentsReviewsModerationRouteModel(fixtures) {
   const route = getRouteByPath("/admin/moderation");
   const items = getModerationItems(fixtures);
   const stats = getModerationStats(fixtures);
-  const selectedItem = items.find((item) => item.status === "pending") || items[0];
-
   return {
     pageId: "comments-reviews-moderation",
     generatedFrom: "comments-reviews-moderation-route-model",
@@ -66,24 +79,21 @@ export function buildCommentsReviewsModerationRouteModel(fixtures) {
     auth: { required: route.authRequired === true, role: "admin", loginHref: "/admin/login" },
     nav: { pendingCount: stats.pendingItems },
     hero: {
-      eyebrow: "Comments / Reviews Moderation",
-      title: "Queue-driven public conversation review.",
-      dek: "Admin-only access to search, filter, approve, and reject public comments."
+      title: "Comment moderation",
+      dek: "Check every reader comment before it appears on the website."
     },
     sections: {
-      stats: { heading: "Moderation health", items: metricItems(stats) },
-      queues: { heading: "Moderation queues", search: { name: "moderation-search", type: "search", placeholder: "Search by author, article, or text" }, filters: queueFilters(fixtures) },
-      workspace: { heading: "Queue workspace", columns: ["type", "author", "article", "status", "body", "row-actions"], items, selectedItem },
-      actions: { heading: "Moderation actions", items: [
-        { action: "approve", label: "Approve", confirmationRequired: false },
-        { action: "reject", label: "Reject", confirmationRequired: false },
-        { action: "delete", label: "Delete", confirmationRequired: true }
-      ] },
-      states: {
-        notes: ["moderation-pending", "approved-only-public", "moderation-undo", "moderation-error", "permission-denied"],
-        items: ["pending", "approved-only-public", "undo", "error", "permission-denied"],
-        permissionHref: "/admin/login",
-        publicRuleCopy: "Approved-only public rendering keeps pending and rejected comments/reviews off article pages."
+      stats: { heading: "Comment overview", items: metricItems(stats) },
+      queues: {
+        search: {
+          name: "moderation-search",
+          placeholder: "Search name, article, category, or comment"
+        }
+      },
+      workspace: {
+        heading: "Comments",
+        columns: ["category", "name", "article", "status", "comment", "actions"],
+        items
       }
     }
   };

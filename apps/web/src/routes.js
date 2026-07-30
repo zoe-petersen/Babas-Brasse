@@ -19,9 +19,8 @@ export const publicNavigationRoutes = publicRoutes.filter((route) => route.navVi
 export const adminRoutes = [
   { id: "admin-dashboard", label: "Dashboard", path: "/admin", area: "admin", authRequired: true, prototypeFile: "src/pages/admin/dashboard.html" },
   { id: "article-management", label: "Articles", path: "/admin/articles", area: "admin", authRequired: true, prototypeFile: "src/pages/admin/article-management.html" },
-  { id: "profile-media-management", label: "Profiles / Media", path: "/admin/profiles-media", area: "admin", authRequired: true, prototypeFile: "src/pages/admin/profile-media-management.html" },
   { id: "moderation", label: "Moderation", path: "/admin/moderation", area: "admin", authRequired: true, prototypeFile: "src/pages/admin/comments-reviews-moderation.html" },
-  { id: "contact-submissions", label: "Contact Submissions", path: "/admin/contact-submissions", area: "admin", authRequired: true, prototypeFile: "src/pages/admin/contact-submissions.html" }
+  { id: "contact-submissions", label: "Submissions", path: "/admin/contact-submissions", area: "admin", authRequired: true, prototypeFile: "src/pages/admin/contact-submissions.html" }
 ];
 
 export const supportRoutes = [

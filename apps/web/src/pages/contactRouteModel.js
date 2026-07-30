@@ -32,7 +32,7 @@ export function buildContactRouteModel(fixtures) {
     hero: {
       eyebrow: "Contact",
       title: "Contact Us",
-      dek: "Send a submission, request coverage, pitch a conversation, or reach the editorial desk."
+      dek: "Bring us the story, project, or idea you cannot stop thinking about. We would love to hear what you are making."
     },
     sections: {
       inquiryTypes: {
