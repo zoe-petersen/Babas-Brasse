@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getArticleDetailRoute } from "../pages/articleDetailRouteModel.js";
@@ -9,76 +9,15 @@ function resolveSlideDestination(slide) {
   return /^(?:\/|https?:\/\/)/i.test(destination) ? destination : "";
 }
 
-function useReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-
-  return reduced;
-}
-
-export function HomeCarousel({ slides, interval = 6500 }) {
+export function HomeCarousel({ slides }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const pointerState = useRef({ startX: null, dragged: false });
-  const suppressNextClick = useRef(false);
-  const dragResetTimer = useRef(null);
-  const reducedMotion = useReducedMotion();
-
-  function showSlide(nextIndex) {
-    setActiveIndex((nextIndex + slides.length) % slides.length);
-  }
 
   function showPrevious() {
-    setPaused(true);
-    showSlide(activeIndex - 1);
+    setActiveIndex((current) => (current - 1 + slides.length) % slides.length);
   }
 
   function showNext() {
-    setPaused(true);
-    showSlide(activeIndex + 1);
-  }
-
-  useEffect(() => {
-    if (paused || reducedMotion || slides.length < 2) return undefined;
-    const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % slides.length);
-    }, interval);
-    return () => window.clearInterval(timer);
-  }, [interval, paused, reducedMotion, slides.length]);
-
-  function handlePointerDown(event) {
-    pointerState.current = { startX: event.clientX, dragged: false };
-    suppressNextClick.current = false;
-    setPaused(true);
-  }
-
-  function handlePointerMove(event) {
-    if (pointerState.current.startX === null) return;
-    if (Math.abs(event.clientX - pointerState.current.startX) > 8) pointerState.current.dragged = true;
-  }
-
-  function handlePointerUp(event) {
-    if (pointerState.current.startX === null) return;
-    const distance = event.clientX - pointerState.current.startX;
-    const wasDragged = pointerState.current.dragged;
-    pointerState.current = { startX: null, dragged: false };
-    suppressNextClick.current = wasDragged;
-    window.clearTimeout(dragResetTimer.current);
-    dragResetTimer.current = window.setTimeout(() => { suppressNextClick.current = false; }, 0);
-    if (wasDragged && Math.abs(distance) >= 44) showSlide(activeIndex + (distance < 0 ? 1 : -1));
-  }
-
-  function handleMediaClick(event) {
-    if (!suppressNextClick.current) return;
-    event.preventDefault();
-    suppressNextClick.current = false;
+    setActiveIndex((current) => (current + 1) % slides.length);
   }
 
   if (!slides.length) return null;
@@ -88,9 +27,9 @@ export function HomeCarousel({ slides, interval = 6500 }) {
     if (!destination) return <div className={className}>{children}</div>;
     const label = `Open ${slide.title}`;
     if (/^https?:\/\//i.test(destination)) {
-      return <a className={className} href={destination} target="_blank" rel="noopener noreferrer" tabIndex={tabIndex} aria-label={`${label} (opens in a new tab)`} onClick={handleMediaClick}>{children}</a>;
+      return <a className={className} href={destination} target="_blank" rel="noopener noreferrer" tabIndex={tabIndex} aria-label={`${label} (opens in a new tab)`}>{children}</a>;
     }
-    return <Link className={className} to={destination} tabIndex={tabIndex} aria-label={label} onClick={handleMediaClick}>{children}</Link>;
+    return <Link className={className} to={destination} tabIndex={tabIndex} aria-label={label}>{children}</Link>;
   }
 
   return (
@@ -98,20 +37,8 @@ export function HomeCarousel({ slides, interval = 6500 }) {
       className="home-carousel"
       aria-label="Babas and Brasse featured stories"
       aria-roledescription="carousel"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
-      }}
     >
-      <div
-        className="home-carousel__track"
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={() => { pointerState.current = { startX: null, dragged: false }; suppressNextClick.current = false; }}
-      >
+      <div className="home-carousel__track">
         {slides.map((slide, index) => {
           const active = index === activeIndex;
           const Heading = index === 0 ? "h1" : "h2";
@@ -131,27 +58,29 @@ export function HomeCarousel({ slides, interval = 6500 }) {
               >
                 <div className="home-carousel__media">
                   <img
-                  src={slide.image}
-                  alt={slide.alt}
-                  width="1600"
-                  height="900"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  fetchPriority={index === 0 ? "high" : "auto"}
+                    src={slide.image}
+                    alt={slide.alt}
+                    width="1600"
+                    height="900"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : "auto"}
                     draggable="false"
                   />
                 </div>
               </SlideLink>
-              <div className="home-carousel__copy">
-                <SlideLink slide={slide} className="home-carousel__copy-link" tabIndex={active ? 0 : -1}>
-                  <p className="eyebrow">{slide.eyebrow}</p>
-                  <Heading>{slide.title}</Heading>
-                  <p>{slide.description}</p>
-                </SlideLink>
-                <SlideLink slide={slide} tabIndex={active ? 0 : -1}>
-                  {slide.cta}
-                  <ArrowRight size={18} aria-hidden="true" />
-                </SlideLink>
-              </div>
+              {index === 0 ? <h1 className="sr-only">{slide.title}</h1> : (
+                <div className="home-carousel__copy">
+                  <SlideLink slide={slide} className="home-carousel__copy-link" tabIndex={active ? 0 : -1}>
+                    <p className="eyebrow">{slide.eyebrow}</p>
+                    <Heading>{slide.title}</Heading>
+                    <p>{slide.description}</p>
+                  </SlideLink>
+                  <SlideLink slide={slide} tabIndex={active ? 0 : -1}>
+                    {slide.cta}
+                    <ArrowRight size={18} aria-hidden="true" />
+                  </SlideLink>
+                </div>
+              )}
             </article>
           );
         })}
@@ -161,20 +90,6 @@ export function HomeCarousel({ slides, interval = 6500 }) {
         <button className="home-carousel__control home-carousel__control--previous" type="button" onClick={showPrevious} aria-label="Previous slide">
           <ArrowLeft aria-hidden="true" />
         </button>
-        <div className="home-carousel__indicators" aria-label="Choose a slide">
-          {slides.map((slide, index) => (
-            <button
-              type="button"
-              key={slide.id}
-              aria-label={"Show slide " + (index + 1) + ": " + slide.title}
-              aria-current={index === activeIndex ? "true" : undefined}
-              onClick={() => {
-                setPaused(true);
-                showSlide(index);
-              }}
-            />
-          ))}
-        </div>
         <button className="home-carousel__control home-carousel__control--next" type="button" onClick={showNext} aria-label="Next slide">
           <ArrowRight aria-hidden="true" />
         </button>

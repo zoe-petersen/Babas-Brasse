@@ -21,7 +21,7 @@ const routeDefaults = {
   },
   content: {
     title: "Content | Babas & Brasse",
-    description: "Browse Babas & Brasse magazine sections including essays, reviews, short stories, opinion pieces, interviews, and artwork.",
+    description: "Browse Babas & Brasse magazine sections including opinion, reviews, short stories, interviews, and artwork.",
     canonicalPath: "/content",
     ogType: "website"
   },

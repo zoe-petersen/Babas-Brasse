@@ -1,6 +1,5 @@
 const categories = [
-  { id: "essays", label: "Essays", slug: "essays", description: "Personal and cultural essays." },
-  { id: "opinion", label: "Opinion Pieces", slug: "opinion", description: "Arguments, reflections, and first-person cultural commentary." },
+  { id: "opinion", label: "Opinion", slug: "opinion", description: "Personal essays, arguments, reflections, and first-person cultural commentary." },
   { id: "short-stories", label: "Short Stories", slug: "short-stories", description: "Creative essays, fiction, and short-form literary work." },
   { id: "reviews", label: "Reviews", slug: "reviews", description: "Books, culture, and media reviews." },
   { id: "interviews", label: "Interviews", slug: "interviews", description: "Conversations with artists and cultural voices." },
@@ -127,7 +126,7 @@ const profiles = [
     slug: "thando-jacobs",
     shortBio: "Writes about belonging, language, and the creative communities making culture across the Cape.",
     socialLinks: [
-      { label: "Read essays", url: "/search?category=essays" },
+      { label: "Read opinion", url: "/search?category=opinion" },
       { label: "Contributor profile", url: "/contributors" }
     ]
   }
@@ -369,7 +368,7 @@ const articles = [
     slug: "on-belonging",
     dek: "A personal essay about identity, community, memory, and the meaning of home.",
     status: "published",
-    categoryId: "essays",
+    categoryId: "opinion",
     authorProfileId: "thando-jacobs",
     publishedAt: "2026-06-20",
     featuredImage: mediaById["editorial-belonging"],
@@ -382,7 +381,7 @@ const articles = [
     slug: "why-multilingualism-matters",
     dek: "An argument for cultural spaces that reflect the languages South Africans actually live in.",
     status: "published",
-    categoryId: "essays",
+    categoryId: "opinion",
     authorProfileId: "thando-jacobs",
     publishedAt: "2026-06-16",
     featuredImage: mediaById["editorial-language"],

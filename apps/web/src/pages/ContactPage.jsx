@@ -53,7 +53,7 @@ function ContactField({ field, className = "" }) {
 
 export function ContactPage({ fixtures = launchFixtures }) {
   const model = buildContactRouteModel(fixtures);
-  const { hero, sections, form } = model;
+  const { sections, form } = model;
   const [contactStatus, setContactStatus] = useState("idle");
 
   async function handleContactSubmit(event) {
@@ -89,23 +89,8 @@ export function ContactPage({ fixtures = launchFixtures }) {
 
   return (
     <section className="figma-public-page figma-contact-page" data-page="contact" data-design-reference="contact-dispatch-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
-      <header data-section="contact-intro" className="figma-page-intro">
-        <h1>{hero.title}</h1>
-        <p>{hero.dek}</p>
-        <div className="contact-inquiry-strip">
-          <strong>{sections.inquiryTypes.heading}:</strong>
-          <ul className="figma-inline-list">
-            {sections.inquiryTypes.items.map((item) => <li key={item}>{item}</li>)}
-          </ul>
-        </div>
-      </header>
-
+      <h1 className="sr-only">Contact us</h1>
       <section className="figma-contact-layout">
-        <aside data-section="contact-info" className="figma-contact-info-panel">
-          <h2>{sections.info.heading}</h2>
-          {sections.info.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-        </aside>
-
         <form
           className="figma-contact-form-panel"
           data-section="contact-form"
@@ -127,6 +112,11 @@ export function ContactPage({ fixtures = launchFixtures }) {
             {contactMessages[contactStatus]}
           </p>
         </form>
+
+        <aside data-section="contact-info" className="figma-contact-info-panel">
+          <h2>{sections.info.heading}</h2>
+          {sections.info.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        </aside>
       </section>
 
       <section data-section="contact-states" className="figma-state-grid" hidden data-state-note="contact-validation" data-state-note-secondary="contact-success">

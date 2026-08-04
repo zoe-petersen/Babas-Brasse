@@ -4,7 +4,22 @@ function publishedArticles(fixtures) {
   return fixtures.articles.filter((article) => article.status === "published");
 }
 
-function publicArticleSummary(article) {
+function getCategory(fixtures, categoryId) {
+  return fixtures.categories.find((category) => category.id === categoryId || category.slug === categoryId) || {
+    id: categoryId,
+    label: categoryId,
+    slug: categoryId
+  };
+}
+
+function getAuthor(fixtures, authorProfileId) {
+  return fixtures.profiles.find((profile) => profile.id === authorProfileId || profile.slug === authorProfileId) || null;
+}
+
+function publicArticleSummary(fixtures, article) {
+  const category = getCategory(fixtures, article.categoryId);
+  const author = getAuthor(fixtures, article.authorProfileId);
+
   return {
     id: article.id,
     title: article.title,
@@ -14,17 +29,53 @@ function publicArticleSummary(article) {
     categoryId: article.categoryId,
     publishedAt: article.publishedAt,
     href: `/visceral-mag/${article.slug}`,
-    featuredImage: article.featuredImage
+    featuredImage: article.featuredImage,
+    category: {
+      id: category.id || article.categoryId,
+      label: category.label,
+      slug: category.slug
+    },
+    author: author ? {
+      id: author.id,
+      name: author.name,
+      slug: author.slug,
+      href: `/people/${author.slug}`
+    } : null
   };
 }
 
 function buildSectionShortcuts() {
   return [
-    { label: "Theatre Reviews", href: "/search?category=reviews&topic=theatre" },
-    { label: "Book Reviews", href: "/search?category=reviews&topic=books" },
-    { label: "Essays", href: "/search?category=essays" },
-    { label: "Opinion", href: "/search?category=essays&topic=opinion" }
+    { id: "literature", label: "Literature", description: "Books, poetry, and the written word.", href: "/search?category=reviews&topic=books" },
+    { id: "opinion", label: "Opinion", description: "Essays, arguments, and lived perspective.", href: "/search?category=opinion" },
+    { id: "interviews", label: "Interviews", description: "Conversations with people making culture.", href: "/search?category=interviews" },
+    { id: "theatre", label: "Theatre", description: "Stages, performances, and rehearsal rooms.", href: "/search?category=reviews&topic=theatre" },
+    { id: "short-stories", label: "Short Stories", description: "Original fiction and literary experiments.", href: "/search?category=short-stories" },
+    { id: "fashion", label: "Fashion", description: "Style, identity, and the people shaping both.", href: "/search?category=articles&topic=fashion" },
+    { id: "music", label: "Music", description: "Sound, scenes, and artists worth hearing.", href: "/search?category=articles&topic=music" },
+    { id: "art", label: "Art", description: "Visual culture, makers, and new ideas.", href: "/search?category=articles&topic=art" },
+    { id: "articles", label: "Articles", description: "Dispatches from across the magazine.", href: "/search?category=articles" }
   ];
+}
+
+function buildContributorSpotlight(fixtures, article) {
+  if (!article?.author?.id) return null;
+
+  const profile = getAuthor(fixtures, article.author.id);
+  if (!profile) return null;
+
+  const publishedWorks = fixtures.articles.filter((item) => item.status === "published" && item.authorProfileId === profile.id);
+
+  return {
+    id: profile.id,
+    name: profile.name,
+    role: profile.role,
+    shortBio: profile.shortBio,
+    href: `/people/${profile.slug}`,
+    image: profile.image || article.featuredImage || null,
+    publishedCount: publishedWorks.length,
+    latestWork: publishedWorks[0] ? publicArticleSummary(fixtures, publishedWorks[0]) : null
+  };
 }
 
 function buildCarouselSlides() {
@@ -82,11 +133,11 @@ function buildFeaturedMedia(fixtures, articles) {
 }
 function buildMoreFromMagazine(fixtures, articles) {
   if (articles.length >= 3) {
-    return { heading: "More from Babas & Brasse", items: articles.slice(0, 4) };
+    return { heading: "From the Archive", items: articles.slice(0, 4) };
   }
 
   return {
-    heading: "More from Babas & Brasse",
+    heading: "From the Archive",
     items: [
       ...fixtures.categories.map((category) => ({
         id: `category-${category.id}`,
@@ -106,11 +157,14 @@ function buildMoreFromMagazine(fixtures, articles) {
 
 export function buildHomeRouteModel(fixtures) {
   const route = getRouteByPath("/");
-  const articles = publishedArticles(fixtures).map(publicArticleSummary);
-  const leadStory = articles.find((article) => article.id === "send-a-text-before-you-knock") || articles[0] || null;
-  const recentArticles = articles.filter((article) => article.id !== leadStory?.id).slice(0, 3);
+  const articles = publishedArticles(fixtures).map((article) => publicArticleSummary(fixtures, article));
+  const homeArticles = articles.filter((article) => article.id !== "send-a-text-before-you-knock");
+  const leadStory = homeArticles[0] || null;
+  const recentArticles = homeArticles.slice(0, 3);
   const recentIds = new Set(recentArticles.map((article) => article.id));
-  const moreArticles = articles.filter((article) => article.id !== leadStory?.id && !recentIds.has(article.id));
+  const moreArticles = homeArticles.filter((article) => !recentIds.has(article.id));
+  const editorsPick = moreArticles[0] || leadStory;
+  const archiveArticles = moreArticles.filter((article) => article.id !== editorsPick?.id);
 
   return {
     pageId: "home",
@@ -131,10 +185,12 @@ export function buildHomeRouteModel(fixtures) {
       leadStory,
       featuredArticle: leadStory,
       carouselSlides: buildCarouselSlides(),
-      featuredMedia: buildFeaturedMedia(fixtures, articles),
+      featuredMedia: buildFeaturedMedia(fixtures, homeArticles),
       recentArticles,
-      latestArticles: articles.slice(0, 3),
+      latestArticles: homeArticles.slice(0, 3),
       sectionShortcuts: buildSectionShortcuts(),
+      editorsPick,
+      contributorSpotlight: buildContributorSpotlight(fixtures, editorsPick),
       categoryAccess: fixtures.categories.map((category) => ({
         id: category.id,
         label: category.label,
@@ -156,7 +212,7 @@ export function buildHomeRouteModel(fixtures) {
         type: profile.type,
         slug: profile.slug
       })),
-      moreFromMagazine: buildMoreFromMagazine(fixtures, moreArticles)
+      moreFromMagazine: buildMoreFromMagazine(fixtures, archiveArticles)
     }
   };
 }

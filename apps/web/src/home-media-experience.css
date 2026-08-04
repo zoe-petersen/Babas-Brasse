@@ -720,13 +720,31 @@
 }
 
 .public-layout .figma-footer__social-links a {
+  width: 38px;
+  height: 38px;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 38px;
+  padding: 0;
+  margin: 0;
   color: var(--production-paper, #f7f3ed);
+  line-height: 0;
+}
+
+.public-layout .figma-footer__social-links a svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
 }
 
 .public-layout .figma-footer__social-links a:hover,
 .public-layout .figma-footer__social-links a:focus-visible {
   background: var(--production-paper, #f7f3ed);
   color: var(--production-ink, #181716);
+  transform: none;
 }
 
 @keyframes magazine-dropdown-in {
@@ -862,7 +880,7 @@
   .public-layout .primary-nav-submenu__panel a:hover,
   .public-layout .primary-nav-submenu__panel a:focus-visible {
     background: transparent;
-    color: var(--production-signal, #a43f2f);
+    color: var(--production-signal, #ED0FF0);
   }
 
   .public-layout .header-social-navigation {

@@ -1,5 +1,5 @@
 /* Stitch v4 private login and dashboard extension. */
-[data-auth-design="stitch-private-login-v4"]{--stitch-v4-ink:#000;--stitch-v4-paper:#fff;--stitch-v4-soft:#f3f3f4;--stitch-v4-muted:#4c4546;--stitch-v4-accent:#a43f2f;--stitch-v4-rule-thin:2px;--stitch-v4-rule-thick:4px;min-height:100vh;background:var(--stitch-v4-paper);color:var(--stitch-v4-ink)}
+[data-auth-design="stitch-private-login-v4"]{--stitch-v4-ink:#000;--stitch-v4-paper:#fff;--stitch-v4-soft:#f3f3f4;--stitch-v4-muted:#4c4546;--stitch-v4-accent:var(--brand-pink);--stitch-v4-rule-thin:2px;--stitch-v4-rule-thick:4px;min-height:100vh;background:var(--stitch-v4-paper);color:var(--stitch-v4-ink)}
 [data-auth-design="stitch-private-login-v4"] .auth-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:78px;padding:0 28px;border-bottom:var(--stitch-v4-rule-thick) solid var(--stitch-v4-ink);background:var(--stitch-v4-paper)}
 [data-auth-design="stitch-private-login-v4"] .auth-header .brand-mark{justify-self:start}
 [data-auth-design="stitch-private-login-v4"] .auth-header .brand-logo{display:block;width:118px;height:58px;object-fit:contain}
@@ -28,7 +28,7 @@
 .stitch-password-toggle{position:absolute;top:2px;right:2px;display:grid;place-items:center;width:54px;height:54px;padding:0;border:0;border-left:var(--stitch-v4-rule-thin) solid var(--stitch-v4-ink);border-radius:0;background:var(--stitch-v4-soft);color:var(--stitch-v4-ink)}
 .stitch-password-toggle svg{width:20px;height:20px}.stitch-password-toggle:hover{background:var(--stitch-v4-ink);color:var(--stitch-v4-paper)}
 .stitch-login-submit{display:flex;align-items:center;justify-content:space-between;min-height:62px;margin-top:4px;padding:0 20px;border:var(--stitch-v4-rule-thin) solid var(--stitch-v4-ink);border-radius:0;background:var(--stitch-v4-ink);color:var(--stitch-v4-paper);font-family:var(--production-ui);font-size:12px;font-weight:800;text-transform:uppercase;box-shadow:6px 6px 0 var(--stitch-v4-accent)}
-.stitch-login-submit:hover:not(:disabled){background:var(--stitch-v4-accent);box-shadow:6px 6px 0 var(--stitch-v4-ink)}
+.stitch-login-submit:hover:not(:disabled){background:var(--stitch-v4-accent);color:var(--stitch-v4-ink);box-shadow:6px 6px 0 var(--stitch-v4-ink)}
 .stitch-login-status{min-height:22px;margin:0;color:var(--stitch-v4-accent);font-size:13px;font-weight:700}
 .stitch-login-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;border-top:var(--stitch-v4-rule-thin) solid var(--stitch-v4-ink);font-family:var(--production-ui);font-size:10px;font-weight:800;text-transform:uppercase}
 .stitch-login-footer p{display:flex;align-items:center;gap:8px;margin:0}.stitch-login-footer a{color:var(--stitch-v4-ink);text-decoration:underline;text-underline-offset:4px}
@@ -211,7 +211,7 @@
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-header nav a[aria-current="page"]::after {
   background: var(--admin-accent-bright);
-  box-shadow: 0 0 0 4px rgba(187, 72, 54, .17);
+  box-shadow: 0 0 0 4px rgba(237, 15, 240, .17);
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-header .admin-nav-icon {
@@ -287,7 +287,7 @@
   justify-content: center;
   gap: 9px;
   margin: 0;
-  border: 1px solid rgba(36, 56, 55, .22);
+  border: 1px solid rgba(49, 83, 50, .22);
   border-radius: 12px;
   background: var(--admin-surface);
   color: var(--admin-deep);
@@ -477,7 +477,7 @@
 [data-admin-design="stitch-private-workspace-v4"] .stitch-dashboard-intro{display:flex;align-items:end;justify-content:space-between;gap:28px}
 .stitch-dashboard-intro>div>p:last-child{max-width:760px}
 .stitch-live-status{display:flex;flex:0 0 auto;align-items:center;gap:9px;margin:0 0 5px;font-family:var(--production-ui);font-size:10px;font-weight:900;text-transform:uppercase}
-.stitch-live-status span{width:10px;height:10px;border-radius:50%;background:var(--stitch-v4-accent);box-shadow:0 0 0 4px rgba(164,63,47,.16)}
+.stitch-live-status span{width:10px;height:10px;border-radius:50%;background:var(--stitch-v4-accent);box-shadow:0 0 0 4px rgba(237,15,240,.16)}
 [data-admin-design="stitch-private-workspace-v4"] .stitch-dashboard-metrics{padding:0}
 [data-admin-design="stitch-private-workspace-v4"] .stitch-dashboard-metrics .figma-admin-metrics{grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
 [data-admin-design="stitch-private-workspace-v4"] .stitch-dashboard-metrics .figma-admin-metrics>h2{margin:0;padding:17px 20px;border-bottom:var(--stitch-v4-rule-thick) solid var(--stitch-v4-ink);font-size:16px;text-transform:uppercase}
@@ -541,8 +541,8 @@
  --admin-surface:#fffdfa;
  --admin-ink:#181716;
  --admin-muted:#6f6961;
- --admin-accent:#a43f2f;
- --admin-deep:#243837;
+ --admin-accent:var(--brand-pink);
+ --admin-deep:var(--brand-green);
  --admin-rule:#d8d2ca;
  --stitch-v4-paper:var(--admin-surface);
  --stitch-v4-soft:var(--admin-paper);
@@ -740,9 +740,9 @@
   --admin-surface: #fffaf2;
   --admin-ink: #171514;
   --admin-muted: #6b645d;
-  --admin-accent: #8f2f2b;
-  --admin-accent-bright: #b74337;
-  --admin-deep: #263b38;
+  --admin-accent: var(--brand-pink);
+  --admin-accent-bright: var(--brand-pink);
+  --admin-deep: var(--brand-green);
   --admin-rule: #cfc6ba;
   --stitch-v4-paper: var(--admin-surface);
   --stitch-v4-soft: var(--admin-paper);
@@ -951,7 +951,7 @@
 }
 
 .stitch-login-form input:focus {
-  outline: 3px solid rgba(36, 56, 55, 0.16);
+  outline: 3px solid rgba(49, 83, 50, 0.16);
   outline-offset: 1px;
   box-shadow: none;
 }
@@ -1124,7 +1124,7 @@
   margin: 0;
   border: 1px solid var(--admin-rule);
   background: var(--admin-surface);
-  box-shadow: 4px 4px 0 rgba(38, 59, 56, .16);
+  box-shadow: 4px 4px 0 rgba(49, 83, 50, .16);
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-toolbar,
@@ -1215,7 +1215,7 @@
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-table-panel [role="row"]:not(.table-header):hover,
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-workspace [role="row"]:not(.table-header):hover {
-  background: rgba(143, 47, 43, .055);
+  background: rgba(237, 15, 240, .055);
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-metric {
@@ -1497,10 +1497,10 @@
   --admin-surface: #fffdfa;
   --admin-ink: #181716;
   --admin-muted: #6f6961;
-  --admin-accent: #a43f2f;
-  --admin-deep: #243837;
+  --admin-accent: var(--brand-pink);
+  --admin-deep: var(--brand-green);
   --admin-rule: #ded8cf;
-  --admin-positive: #2f6853;
+  --admin-positive: var(--brand-green);
   --admin-warning: #8a5a19;
   --admin-radius: 14px;
 }
@@ -1652,9 +1652,9 @@
   justify-content: space-between;
   gap: 18px;
   padding: 14px 16px;
-  border: 1px solid rgba(164, 63, 47, 0.35);
+  border: 1px solid rgba(237, 15, 240, 0.35);
   border-radius: 10px;
-  background: #fff6f3;
+  background: #fff4ff;
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .admin-inline-alert p {
@@ -1834,7 +1834,7 @@
 [data-admin-design="stitch-private-workspace-v4"] .admin-article-form select:focus,
 [data-admin-design="stitch-private-workspace-v4"] .admin-article-form textarea:focus {
   border-color: var(--admin-deep);
-  outline: 3px solid rgba(36, 56, 55, 0.13);
+  outline: 3px solid rgba(49, 83, 50, 0.13);
   outline-offset: 0;
   box-shadow: none;
 }
@@ -2096,8 +2096,8 @@
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .admin-status-pill[data-status="rejected"] {
-  border-color: rgba(164, 63, 47, 0.28);
-  background: #fff1ed;
+  border-color: rgba(237, 15, 240, 0.28);
+  background: #fff4ff;
   color: var(--admin-accent);
 }
 
@@ -2624,8 +2624,8 @@
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-dashboard-page .admin-workspace-status span {
-  background: #79a88f;
-  box-shadow: 0 0 0 4px rgba(121, 168, 143, 0.14);
+  background: var(--brand-green);
+  box-shadow: 0 0 0 4px rgba(49, 83, 50, 0.14);
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-dashboard-page .admin-workspace-status[data-state="loading"] span {
@@ -2635,7 +2635,7 @@
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-dashboard-page .admin-workspace-status[data-state="error"] span {
   background: var(--admin-accent);
-  box-shadow: 0 0 0 4px rgba(164, 63, 47, 0.18);
+  box-shadow: 0 0 0 4px rgba(237, 15, 240, 0.18);
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-dashboard-page .stitch-dashboard-metrics .figma-admin-metrics {
@@ -2724,7 +2724,7 @@
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-dashboard-page .stitch-dashboard-metrics .figma-admin-metric:hover {
   transform: translateY(-2px);
-  border-color: rgba(36, 56, 55, 0.36);
+  border-color: rgba(49, 83, 50, 0.36);
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-admin-dashboard-page .stitch-dashboard-metrics .figma-admin-metric .eyebrow {
@@ -2908,9 +2908,9 @@
   min-height: 30px;
   margin: 0 12px;
   padding: 7px 10px;
-  border: 1px solid rgba(164, 63, 47, 0.22);
+  border: 1px solid rgba(237, 15, 240, 0.22);
   border-radius: 999px;
-  background: #fff3ef;
+  background: #fff4ff;
   color: var(--admin-accent);
   font-size: 8px;
   white-space: nowrap;
@@ -3202,7 +3202,7 @@
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-contact-submissions-page > .admin-compact-intro .admin-workspace-status span {
   background: var(--admin-accent);
-  box-shadow: 0 0 0 4px rgba(164, 63, 47, 0.18);
+  box-shadow: 0 0 0 4px rgba(237, 15, 240, 0.18);
 }
 
 /* Page summaries */
@@ -3434,7 +3434,7 @@
 [data-admin-design="stitch-private-workspace-v4"] .figma-comments-reviews-moderation-page .admin-filter-bar select:hover,
 [data-admin-design="stitch-private-workspace-v4"] .figma-contact-submissions-page .admin-filter-bar input:hover,
 [data-admin-design="stitch-private-workspace-v4"] .figma-contact-submissions-page .admin-filter-bar select:hover {
-  border-color: rgba(36, 56, 55, 0.38);
+  border-color: rgba(49, 83, 50, 0.38);
 }
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-article-management-page .admin-filter-bar > .admin-secondary-action,
@@ -3595,7 +3595,7 @@
 [data-admin-design="stitch-private-workspace-v4"] .figma-contact-submissions-page .admin-modal-header {
   padding: 23px 25px;
   border-bottom: 4px solid var(--admin-accent);
-  background: rgba(36, 56, 55, 0.98);
+  background: rgba(49, 83, 50, 0.98);
   color: var(--admin-surface);
 }
 
@@ -3651,7 +3651,7 @@
 
 [data-admin-design="stitch-private-workspace-v4"] .figma-article-management-page .admin-upload-field {
   padding: 14px;
-  border: 1px dashed rgba(36, 56, 55, 0.35);
+  border: 1px dashed rgba(49, 83, 50, 0.35);
   border-radius: 10px;
   background: var(--admin-paper);
 }
@@ -4204,4 +4204,31 @@
     min-height: 44px;
     flex-basis: 44px;
   }
+}
+
+/* Brand palette contrast: pink controls use dark ink; green carries text and deep surfaces. */
+.stitch-login-submit:hover:not(:disabled),
+[data-admin-design="stitch-private-workspace-v4"] .figma-admin-header .admin-signout-button:hover:not(:disabled),
+[data-admin-design="stitch-private-workspace-v4"] .figma-admin-header > button:hover,
+[data-admin-design="stitch-private-workspace-v4"] button:not(.danger-button):hover:not(:disabled),
+[data-admin-design="stitch-private-workspace-v4"] .figma-article-management-page > .admin-page-heading .admin-primary-action:hover {
+  color: var(--admin-ink, #181716);
+}
+
+[data-admin-design="stitch-private-workspace-v4"] .danger-button {
+  border-color: var(--brand-pink);
+  color: var(--admin-ink);
+}
+
+[data-admin-design="stitch-private-workspace-v4"] .danger-button:hover:not(:disabled) {
+  border-color: var(--brand-pink);
+  background: var(--brand-pink);
+  color: var(--admin-ink);
+}
+
+[data-admin-design="stitch-private-workspace-v4"] .figma-admin-header nav a:hover,
+[data-admin-design="stitch-private-workspace-v4"] .admin-status-pill[data-status="rejected"],
+[data-admin-design="stitch-private-workspace-v4"] .figma-admin-dashboard-page .stitch-panel-heading .eyebrow,
+[data-admin-design="stitch-private-workspace-v4"] .figma-admin-dashboard-page .admin-recent-activity .activity-row > [role="cell"]:nth-child(3) {
+  color: var(--brand-green);
 }

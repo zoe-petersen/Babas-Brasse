@@ -1,10 +1,10 @@
 {
   "categories": [
     {
-      "id": "essays",
-      "label": "Essays",
-      "slug": "essays",
-      "description": "Personal and cultural essays."
+      "id": "opinion",
+      "label": "Opinion",
+      "slug": "opinion",
+      "description": "Personal essays, arguments, reflections, and first-person cultural commentary."
     },
     {
       "id": "reviews",
@@ -83,8 +83,8 @@
       },
       "socialLinks": [
         {
-          "label": "Latest essays",
-          "url": "/search?category=essays"
+          "label": "Latest opinion",
+          "url": "/search?category=opinion"
         },
         {
           "label": "Pitch the editors",
@@ -177,8 +177,8 @@
       "shortBio": "Writes about belonging, language, and the creative communities making culture across the Cape.",
       "socialLinks": [
         {
-          "label": "Read essays",
-          "url": "/search?category=essays"
+          "label": "Read opinion",
+          "url": "/search?category=opinion"
         },
         {
           "label": "Contributor profile",
@@ -241,7 +241,7 @@
       "slug": "send-a-text-before-you-knock",
       "dek": "On privacy, hospitality, and why arriving at someone's door now begins with a message.",
       "status": "published",
-      "categoryId": "essays",
+      "categoryId": "opinion",
       "authorProfileId": "visceral-contributor",
       "publishedAt": "2026-07-01",
       "featuredImage": {
@@ -386,7 +386,7 @@
       "slug": "on-belonging",
       "dek": "A personal essay about identity, community, memory, and the meaning of home.",
       "status": "published",
-      "categoryId": "essays",
+      "categoryId": "opinion",
       "authorProfileId": "thando-jacobs",
       "publishedAt": "2026-06-20",
       "featuredImage": {
@@ -415,7 +415,7 @@
       "slug": "why-multilingualism-matters",
       "dek": "An argument for cultural spaces that reflect the languages South Africans actually live in.",
       "status": "published",
-      "categoryId": "essays",
+      "categoryId": "opinion",
       "authorProfileId": "thando-jacobs",
       "publishedAt": "2026-06-16",
       "featuredImage": {

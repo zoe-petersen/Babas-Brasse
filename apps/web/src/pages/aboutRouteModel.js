@@ -13,12 +13,6 @@ const aboutCopy = {
   collective: "Our collective is for all the babas and brasse out there: the artists, misfits, writers, makers and shakers, and lovers of all things creative who are hustling through the gatekeeping and kapping aan despite the many challenges of life in South Africa."
 };
 
-const routeCards = [
-  { href: "/creative-team", label: "Creative Team", body: "Meet the people shaping the publication." },
-  { href: "/contributors", label: "Contributors", body: "Browse writers and their published work." },
-  { href: "/contact", label: "Submissions", body: "Send pitches, requests, corrections, and media submissions." }
-];
-
 function teamCard(profile) {
   return {
     id: profile.id,
@@ -26,7 +20,6 @@ function teamCard(profile) {
     role: profile.role,
     slug: profile.slug,
     href: "/people/" + profile.slug,
-    shortBio: profile.shortBio,
     image: profile.image || { url: "/media/profile-placeholder.jpg", altText: "Portrait of " + profile.name }
   };
 }
@@ -49,18 +42,23 @@ export function buildAboutRouteModel(fixtures) {
       dek: "A literary vessel, cultural anchor, and inclusive platform for South African arts, fashion, literature, and lived experience."
     },
     sections: {
+      banner: {
+        image: {
+          url: "",
+          altText: "Babas and Brasse creative collective"
+        }
+      },
       overview: {
         stateNote: "about-content-updated",
         whoWeAre: aboutCopy.whoWeAre,
         name: aboutCopy.name,
         collective: aboutCopy.collective,
         image: {
-          url: "/media/moodboard/south-african-arts-editorial-moodboard.png",
-          altText: "Brutalist South African arts magazine mood board with collage texture, paper grain, and oxblood accents"
+          url: "/media/logo.png",
+          altText: "Babas and Brasse logo"
         }
       },
-      creativeTeam: fixtures.profiles.filter((profile) => profile.type === "creative_team").map(teamCard),
-      routeCards
+      creativeTeam: fixtures.profiles.filter((profile) => profile.type === "creative_team").map(teamCard)
     }
   };
 }

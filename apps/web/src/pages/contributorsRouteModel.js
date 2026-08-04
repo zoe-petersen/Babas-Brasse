@@ -3,7 +3,7 @@ import { getRouteByPath } from "../routes.js";
 const contributorFilters = [
   { slug: "theatre", label: "Theatre" },
   { slug: "books", label: "Books" },
-  { slug: "essays", label: "Essays" }
+  { slug: "opinion", label: "Opinion" }
 ];
 
 function getCategory(fixtures, categoryId) {
@@ -29,6 +29,7 @@ function contributorCard(fixtures, profile) {
     name: profile.name,
     role: profile.role,
     slug: profile.slug,
+    href: `/people/${profile.slug}`,
     shortBio: profile.shortBio,
     socialLinks: Array.isArray(profile.socialLinks) ? profile.socialLinks : [],
     image: {
@@ -65,6 +66,7 @@ export function getPublishedWorksForContributor(fixtures, contributorSlug) {
         status: article.status,
         publishedAt: article.publishedAt,
         href: `/visceral-mag/${article.slug}`,
+        featuredImage: article.featuredImage,
         category: {
           id: article.categoryId,
           label: category.label,
@@ -73,7 +75,8 @@ export function getPublishedWorksForContributor(fixtures, contributorSlug) {
         author: {
           id: contributor.id,
           name: contributor.name,
-          slug: contributor.slug
+          slug: contributor.slug,
+          href: `/people/${contributor.slug}`
         }
       };
     });
@@ -96,6 +99,7 @@ export function buildContributorsRouteModel(fixtures) {
         status: article.status,
         publishedAt: article.publishedAt,
         href: `/visceral-mag/${article.slug}`,
+        featuredImage: article.featuredImage,
         category: {
           id: article.categoryId,
           label: category.label,
@@ -104,7 +108,8 @@ export function buildContributorsRouteModel(fixtures) {
         author: {
           id: author ? author.id : article.authorProfileId,
           name: author ? author.name : "Contributor",
-          slug: author ? author.slug : "contributor"
+          slug: author ? author.slug : "contributor",
+          href: author ? author.href : "/contributors"
         }
       };
     });
@@ -136,7 +141,7 @@ export function buildContributorsRouteModel(fixtures) {
     sections: {
       contributorsGrid: contributors.length > 0 ? {
         state: "ready",
-        heading: "Contributor Profiles",
+        heading: "Meet the contributors",
         items: contributors
       } : {
         state: "no-results",

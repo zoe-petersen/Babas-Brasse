@@ -107,9 +107,35 @@ function hydrateCollection(incomingItems, fallbackItems = [], keyFn = (item) => 
   });
 }
 
+function normalizeEditorialCategories(items) {
+  const normalizedById = new Map();
+
+  items.forEach((category) => {
+    const isLegacyEssayCategory = category?.id === "essays" || category?.slug === "essays";
+    const normalizedCategory = isLegacyEssayCategory ? {
+      ...category,
+      id: "opinion",
+      label: "Opinion",
+      slug: "opinion",
+      description: "Personal essays, arguments, reflections, and first-person cultural commentary."
+    } : category?.id === "opinion" || category?.slug === "opinion" ? {
+      ...category,
+      label: "Opinion"
+    } : category;
+
+    if (normalizedCategory?.id) normalizedById.set(normalizedCategory.id, normalizedCategory);
+  });
+
+  return [...normalizedById.values()];
+}
+
+function normalizeEditorialArticle(article) {
+  return article?.categoryId === "essays" ? { ...article, categoryId: "opinion" } : article;
+}
+
 function mergePublicationFixtures(payload) {
-  const categories = hydrateCollection(payload?.categories, launchFixtures.categories, (item) => item?.id || item?.slug);
-  const articles = hydrateCollection(payload?.articles, launchFixtures.articles, (item) => item?.id || item?.slug);
+  const categories = normalizeEditorialCategories(hydrateCollection(payload?.categories, launchFixtures.categories, (item) => item?.id || item?.slug));
+  const articles = hydrateCollection(payload?.articles, launchFixtures.articles, (item) => item?.id || item?.slug).map(normalizeEditorialArticle);
   const comments = hydrateCollection(payload?.comments, launchFixtures.comments, (item) => item?.id);
   const reviews = hydrateCollection(payload?.reviews, launchFixtures.reviews, (item) => item?.id);
   const profiles = hydrateCollection(payload?.profiles, launchFixtures.profiles, (item) => item?.id || item?.slug).map((profile, index) => {

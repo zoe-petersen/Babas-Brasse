@@ -83,7 +83,8 @@ function articleResult(article, fixtures) {
 
 export function filterPublishedArticles(fixtures, options = {}) {
   const query = normalize(options.query);
-  const categoryFilter = normalize(options.category);
+  const requestedCategory = normalize(options.category);
+  const categoryFilter = requestedCategory === "essays" ? "opinion" : requestedCategory;
   const topicFilter = normalize(options.topic);
 
   return getPublishedArticles(fixtures)
@@ -105,7 +106,7 @@ export function searchPublishedArticles(fixtures, query) {
 export function buildCategoriesSearchRouteModel(fixtures, options = {}) {
   const route = getRouteByPath("/search");
   const query = options.query || "";
-  const category = options.category || "";
+  const category = normalize(options.category) === "essays" ? "opinion" : options.category || "";
   const topic = options.topic || "";
   const results = filterPublishedArticles(fixtures, { query, category, topic });
   const selectedCategory = category ? getCategory(fixtures.categories, category) : null;
@@ -122,7 +123,7 @@ export function buildCategoriesSearchRouteModel(fixtures, options = {}) {
     stateNote: "search-loading",
     hero: {
       eyebrow: "Categories / Search",
-      title: "Find essays, opinion pieces, short stories, reviews, interviews, artwork, and culture notes.",
+      title: "Find opinion, short stories, reviews, interviews, artwork, and culture notes.",
       dek: "Search the published Babas & Brasse archive by keyword or use the magazine sections above."
     },
     search: {

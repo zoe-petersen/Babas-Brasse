@@ -32,14 +32,15 @@ export function CategoriesSearchPage({ fixtures = launchFixtures, query, categor
   const params = new URLSearchParams(location.search);
   const activeQuery = query ?? params.get("q") ?? "";
   const activeCategory = category ?? params.get("category") ?? "";
+  const normalizedCategory = activeCategory === "essays" ? "opinion" : activeCategory;
   const activeTopic = topic ?? params.get("topic") ?? "";
   const model = buildCategoriesSearchRouteModel(fixtures, {
     query: activeQuery,
-    category: activeCategory,
+    category: normalizedCategory,
     topic: activeTopic
   });
   const { hero, selectedCategory, sections } = model;
-  const section = sectionCopy[activeTopic] || sectionCopy[activeCategory] || { ...hero, title: "Explore the magazine." };
+  const section = sectionCopy[activeTopic] || sectionCopy[normalizedCategory] || { ...hero, title: "Explore the magazine." };
 
   return (
     <section className="figma-public-page figma-search-page" data-page="categories-search" data-design-reference="search-archive-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-state-note={model.stateNote} data-prototype-file={model.route.prototypeFile}>

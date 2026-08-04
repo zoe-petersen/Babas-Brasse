@@ -1,15 +1,15 @@
 import { getRouteByPath } from "../routes.js";
 
 const contactSubjects = [
-  { value: "press-release", label: "Press Release" },
-  { value: "theatre-review", label: "Theatre Review" },
-  { value: "interview-request", label: "Interview Request" },
-  { value: "book-review", label: "Book Review" },
-  { value: "photography-submissions", label: "Photography Submissions" },
-  { value: "artwork-submissions", label: "Artwork Submissions" },
-  { value: "literary-submissions", label: "Literary Submissions" },
-  { value: "event-coverage-request", label: "Event Coverage Request" },
-  { value: "general-enquiry", label: "General Enquiry" }
+  { value: "literature", label: "Literature" },
+  { value: "opinion", label: "Opinion" },
+  { value: "interviews", label: "Interviews" },
+  { value: "theatre", label: "Theatre" },
+  { value: "short-stories", label: "Short Stories" },
+  { value: "fashion", label: "Fashion" },
+  { value: "music", label: "Music" },
+  { value: "art", label: "Art" },
+  { value: "articles", label: "Articles" }
 ];
 
 export function getContactSubjectOptions() {

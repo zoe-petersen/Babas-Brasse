@@ -8,7 +8,7 @@
   --stitch-v4-paper: #ffffff;
   --stitch-v4-soft: #f3f3f4;
   --stitch-v4-muted: #4c4546;
-  --stitch-v4-accent: #a43f2f;
+  --stitch-v4-accent: var(--brand-pink);
   --stitch-v4-rule-thin: 2px;
   --stitch-v4-rule-thick: 4px;
 }
@@ -222,7 +222,7 @@
 }
 
 [data-public-design="visceral-brutalist-archive"] .stitch-search-result:nth-child(3n) h3 a {
-  color: var(--stitch-v4-accent);
+  color: var(--brand-green);
 }
 
 /* Contributors become a single scannable directory instead of repeated cards. */
@@ -297,7 +297,7 @@
 
 [data-public-design="visceral-brutalist-archive"] .stitch-directory-row:hover h3 a,
 [data-public-design="visceral-brutalist-archive"] .stitch-directory-row:focus-within h3 a {
-  color: var(--stitch-v4-accent);
+  color: var(--brand-green);
 }
 
 /* Team and profile keep portrait identity but gain stronger editorial framing. */
@@ -1117,11 +1117,11 @@
   text-transform: uppercase;
 }
 
-[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .reader-response-form > button:hover:not(:disabled) { background: var(--stitch-v4-accent); border-color: var(--stitch-v4-accent); }
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .reader-response-form > button:hover:not(:disabled) { background: var(--stitch-v4-accent); border-color: var(--stitch-v4-accent); color: var(--stitch-v4-ink); }
 [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .reader-response-form[data-form-status="submitting"] { opacity: .68; }
-[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .reader-response-form .public-form-status[data-form-status="success"] { padding: 14px; background: var(--stitch-v4-accent); color: var(--stitch-v4-paper); font-family: var(--production-ui); font-weight: 800; text-transform: uppercase; }
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .reader-response-form .public-form-status[data-form-status="success"] { padding: 14px; background: var(--stitch-v4-accent); color: var(--stitch-v4-ink); font-family: var(--production-ui); font-weight: 800; text-transform: uppercase; }
 [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .reader-response-form .public-form-status[data-form-status="error"],
-[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .reader-response-form .public-form-status[data-form-status="validation"] { padding: 12px; border-left: 5px solid var(--stitch-v4-accent); background: var(--stitch-v4-paper); color: var(--stitch-v4-accent); }
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .reader-response-form .public-form-status[data-form-status="validation"] { padding: 12px; border-left: 5px solid var(--stitch-v4-accent); background: var(--stitch-v4-paper); color: var(--brand-green); }
 
 @media (max-width: 760px) {
   [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .reader-section { gap: 18px; padding-top: 42px; padding-bottom: 48px; }
@@ -1255,7 +1255,7 @@
 [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .public-form-status:not(:empty) { margin: 0; padding: 14px; border: 2px solid var(--stitch-v4-ink); font: 800 12px/1.3 var(--production-ui); text-transform: uppercase; }
 [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .public-form-status[data-form-status="success"] { background: var(--stitch-v4-ink); color: var(--stitch-v4-paper); }
 [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .public-form-status[data-form-status="error"],
-[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .public-form-status[data-form-status="validation"] { background: var(--stitch-v4-accent); color: var(--stitch-v4-paper); }
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .public-form-status[data-form-status="validation"] { background: var(--stitch-v4-accent); color: var(--stitch-v4-ink); }
 
 @media (max-width: 760px) {
   [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] { border-inline: 0; }

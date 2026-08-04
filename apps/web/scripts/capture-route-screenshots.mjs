@@ -5,9 +5,12 @@ import { tmpdir } from "node:os";
 
 const baseUrl = (process.env.WEB_BASE_URL || "http://127.0.0.1:5173").replace(/\/$/, "");
 const outputDir = resolve("browser-qa", "figma-viewport-matrix");
+const captureHeight = Number.parseInt(process.env.QA_HEIGHT || "1200", 10);
 
 const routes = [
   { id: "home", path: "/" },
+  { id: "about", path: "/about" },
+  { id: "contributors", path: "/contributors" },
   { id: "visceral-mag", path: "/visceral-mag" },
   { id: "article-detail", path: "/visceral-mag/send-a-text-before-you-knock" },
   { id: "profile-detail", path: "/people/visceral-contributor" },
@@ -15,11 +18,11 @@ const routes = [
   { id: "featured", path: "/featured" },
   { id: "contact", path: "/contact" },
   { id: "admin-dashboard", path: "/admin" }
-];
+].filter((route) => !process.env.QA_ROUTE || route.id === process.env.QA_ROUTE);
 
 const viewports = [
-  { id: "desktop", width: 1440, height: 1200 },
-  { id: "mobile", width: 390, height: 1200 }
+  { id: "desktop", width: 1440, height: captureHeight },
+  { id: "mobile", width: 390, height: captureHeight }
 ];
 
 function browserCandidates() {
