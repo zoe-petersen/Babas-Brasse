@@ -10,6 +10,7 @@ const captureHeight = Number.parseInt(process.env.QA_HEIGHT || "1200", 10);
 const routes = [
   { id: "home", path: "/" },
   { id: "about", path: "/about" },
+  { id: "content", path: "/content" },
   { id: "contributors", path: "/contributors" },
   { id: "visceral-mag", path: "/visceral-mag" },
   { id: "article-detail", path: "/visceral-mag/send-a-text-before-you-knock" },

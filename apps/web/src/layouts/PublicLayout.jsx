@@ -180,7 +180,7 @@ export function PublicLayout({ route, children }) {
         <div className="figma-footer__inner">
           <section className="figma-footer__brand" aria-label="Babas and Brasse summary">
             <img className="figma-footer__logo" src="/media/logo.png" alt="Babas and Brasse" />
-            <h2>Independent stories.<br />South African voices.</h2>
+            {/* <h2>Independent stories.<br />South African voices.</h2> */}
             <p>Culture, criticism, and creative work made with nerve, care, and a point of view.</p>
             <Link className="figma-footer__cta" to="/contact">
               Submit your work <ArrowRight size={17} aria-hidden="true" />

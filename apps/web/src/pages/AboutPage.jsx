@@ -91,14 +91,7 @@ export function AboutPage({ fixtures = launchFixtures }) {
         </div>
       </section>
 
-      <section id="submit-your-work" data-section="about-submission-cta" className="about-submission-cta">
-        <div className="about-submission-cta__copy">
-          <p className="eyebrow">The door is open</p>
-          <h2>Want to submit your work?</h2>
-          <p>Share your writing, photography, artwork, fashion, or creative project with the Babas &amp; Brasse team.</p>
-        </div>
-        <Link className="about-submission-cta__button" to="/contact">Start a submission <ArrowRight size={19} aria-hidden="true" /></Link>
-      </section>
+     
     </section>
   );
 }
