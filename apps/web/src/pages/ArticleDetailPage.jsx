@@ -85,8 +85,10 @@ export function ArticleDetailPage({ fixtures = launchFixtures, slug = "send-a-te
       </nav>
 
       <header data-section="article-hero" className="figma-article-hero article-reader-hero">
-        <h1>{article.title}</h1>
-        <p>{article.dek}</p>
+        <div className="article-reader-hero__copy">
+          <h1>{article.title}</h1>
+          <p>{article.dek}</p>
+        </div>
         <div className="article-reader-hero__footer">
           <div className="article-reader-byline">
             <Link to={article.author.href}>

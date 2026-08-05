@@ -89,10 +89,18 @@ export function ContactPage({ fixtures = launchFixtures }) {
 
   return (
     <section className="figma-public-page figma-contact-page" data-page="contact" data-design-reference="contact-dispatch-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
-      <h1 className="sr-only">Contact us</h1>
+      <header data-section="contact-intro" className="figma-page-intro contact-editorial-hero">
+        <div className="contact-editorial-hero__copy">
+          <h1>{model.hero.title}</h1>
+          <p>{model.hero.dek}</p>
+        </div>
+        <span className="contact-editorial-hero__accent" aria-hidden="true" />
+      </header>
+
       <section className="figma-contact-layout">
         <form
           className="figma-contact-form-panel"
+          aria-labelledby="contact-form-heading"
           data-section="contact-form"
           data-admin-target={model.form.adminTarget}
           data-form-status={contactStatus}
@@ -101,6 +109,10 @@ export function ContactPage({ fixtures = launchFixtures }) {
           onSubmit={handleContactSubmit}
           noValidate
         >
+          <header className="contact-form-heading">
+            <h2 id="contact-form-heading">Send your submission</h2>
+            <p>Share the essentials and give the editorial team a clear sense of your idea.</p>
+          </header>
           <div className="contact-identity-fields">
             {form.fields.slice(0, 2).map((field) => <ContactField key={field.name} field={field} />)}
           </div>
@@ -113,8 +125,11 @@ export function ContactPage({ fixtures = launchFixtures }) {
           </p>
         </form>
 
-        <aside data-section="contact-info" className="figma-contact-info-panel">
-          <h2>{sections.info.heading}</h2>
+        <aside data-section="contact-info" className="figma-contact-info-panel" aria-labelledby="contact-guidelines-heading">
+          <h2 id="contact-guidelines-heading">{sections.info.heading}</h2>
+          <ul className="contact-inquiry-types" aria-label={sections.inquiryTypes.heading}>
+            {sections.inquiryTypes.items.map((item) => <li key={item}>{item}</li>)}
+          </ul>
           {sections.info.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </aside>
       </section>

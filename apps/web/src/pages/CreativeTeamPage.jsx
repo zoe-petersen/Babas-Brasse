@@ -34,14 +34,6 @@ export function CreativeTeamPage({ fixtures = launchFixtures }) {
           </div>
         )}
       </section>
-
-      <footer data-section="team-footer" className="figma-content-section">
-        <h2>{footer.heading}</h2>
-        <p>{footer.body}</p>
-        <nav aria-label="Creative Team footer links">
-          {footer.links.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
-        </nav>
-      </footer>
     </section>
   );
 }

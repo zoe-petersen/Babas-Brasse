@@ -26,18 +26,7 @@ export function ContentPage({ fixtures = launchFixtures }) {
             <Link to="/contributors">Meet the voices</Link>
           </div>
         </div>
-        {hero.featuredStory ? (
-          <article className="content-hero-feature" data-article={hero.featuredStory.slug}>
-            <Link className="content-hero-feature__media" to={hero.featuredStory.href} aria-label={`Read ${hero.featuredStory.title}`}>
-              <img src={hero.featuredStory.featuredImage.url} alt={hero.featuredStory.featuredImage.altText || hero.featuredStory.title} />
-            </Link>
-            <div>
-              <p>{hero.featuredStory.category.label} / Featured read</p>
-              <h2><Link to={hero.featuredStory.href}>{hero.featuredStory.title}</Link></h2>
-              <span>{hero.featuredStory.author?.name || "Babas & Brasse"} · {formatDate(hero.featuredStory.publishedAt)}</span>
-            </div>
-          </article>
-        ) : null}
+        <span className="content-editorial-hero__accent" aria-hidden="true" />
       </header>
 
       <dl className="content-editorial-stats" aria-label="Magazine overview">

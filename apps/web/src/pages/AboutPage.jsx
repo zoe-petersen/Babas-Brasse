@@ -18,11 +18,8 @@ export function AboutPage({ fixtures = launchFixtures }) {
           </div>
         )}
         <div className="about-client-banner__content">
-          {/* <p>Independent South African arts &amp; culture</p> */}
           <h1>
-            <span>A place to be</span>
-            <span>seen, heard, and</span>
-            <span>remembered.</span>
+            <span>About Us</span>
           </h1>
           <span>{model.hero.dek}</span>
         </div>

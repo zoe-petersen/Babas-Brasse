@@ -75,10 +75,6 @@ export function HomeCarousel({ slides }) {
                     <Heading>{slide.title}</Heading>
                     <p>{slide.description}</p>
                   </SlideLink>
-                  <SlideLink slide={slide} tabIndex={active ? 0 : -1}>
-                    {slide.cta}
-                    <ArrowRight size={18} aria-hidden="true" />
-                  </SlideLink>
                 </div>
               )}
             </article>

@@ -71,12 +71,12 @@ export function buildFeaturedMediaRouteModel(fixtures, routePath = "/photography
     hero: {
       eyebrow: "Photography",
       title: "Photography",
-      dek: "A responsive editorial mood board of photographs, captions, credits, and publication details."
+      dek: "A visual archive of people, places, and creative moments shaping the world around us."
     },
     sections: {
       mediaGallery: mediaItems.length > 0 ? {
         state: "ready",
-        heading: "Photography mood board",
+        heading: "Mood board",
         items: mediaItems
       } : {
         state: "no-media",

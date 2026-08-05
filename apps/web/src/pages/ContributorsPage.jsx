@@ -20,20 +20,6 @@ export function ContributorsPage({ fixtures = launchFixtures }) {
             Explore their work <ArrowRight size={19} aria-hidden="true" />
           </Link>
         </div>
-        <dl className="contributors-hero__stats" aria-label="Contributor directory overview">
-          <div>
-            <dt>Creative voices</dt>
-            <dd>{String(contributors.length).padStart(2, "0")}</dd>
-          </div>
-          <div>
-            <dt>Published pieces</dt>
-            <dd>{String(publishedCount).padStart(2, "0")}</dd>
-          </div>
-          <div>
-            <dt>Perspectives</dt>
-            <dd>{String(categoryCount).padStart(2, "0")}</dd>
-          </div>
-        </dl>
       </header>
 
       <section data-section="contributors-grid" className="figma-content-section" data-state={sections.contributorsGrid.state}>

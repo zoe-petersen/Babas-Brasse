@@ -2866,10 +2866,10 @@
 [data-public-design="visceral-brutalist-archive"] .home-carousel__track,
 [data-public-design="visceral-brutalist-archive"] .home-carousel__slide {
   width: 100%;
-  height: 88vh;
-  height: 88svh;
-  min-height: 88vh;
-  min-height: 88svh;
+  height: 89vh;
+  height: 89svh;
+  min-height: 89vh;
+  min-height: 89svh;
 }
 
 [data-public-design="visceral-brutalist-archive"] .home-carousel__slide {
@@ -5387,7 +5387,10 @@
   height: 76px;
   border: 3px solid var(--production-ink);
   border-radius: 50%;
-  background: var(--brand-pink);
+  background: #ED0FF0;
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 1;
   content: "";
 }
 
@@ -7012,11 +7015,14 @@
   position: relative;
   isolation: isolate;
   display: flex;
+  box-sizing: border-box;
   width: 100%;
   max-width: none;
-  min-height: 520px;
+  height: clamp(380px, 50svh, 480px);
+  min-height: 380px;
   margin: 0;
-  padding: clamp(82px, 10vw, 142px) max(24px, calc((100% - 1240px) / 2));
+  padding: clamp(48px, 6vw, 76px) max(24px, calc((100% - 1240px) / 2));
+  overflow: hidden;
   border: 0;
   border-bottom: 5px solid var(--production-ink);
   background: #f5f5f0;
@@ -7054,7 +7060,7 @@
   max-width: 9.5ch;
   margin: 0;
   color: var(--production-ink);
-  font-size: clamp(58px, 7.6vw, 104px);
+  font-size: clamp(50px, 6.4vw, 86px);
   font-weight: 500;
   line-height: .88;
   letter-spacing: -.06em;
@@ -7066,10 +7072,10 @@
   position: relative;
   z-index: 1;
   max-width: 660px;
-  margin: 30px 0 0;
+  margin: 24px 0 0;
   color: #42423e;
   font-family: var(--production-serif);
-  font-size: clamp(18px, 1.65vw, 23px);
+  font-size: clamp(17px, 1.45vw, 21px);
   line-height: 1.55;
 }
 
@@ -7350,8 +7356,9 @@
 
 @media (max-width: 700px) {
   [data-public-design="visceral-brutalist-archive"] [data-design-reference="search-archive-v4"] .category-results-hero {
-    min-height: 400px;
-    padding: 72px 18px 64px;
+    height: clamp(330px, 50svh, 400px);
+    min-height: 330px;
+    padding: 50px 18px 46px;
   }
 
   [data-public-design="visceral-brutalist-archive"] .category-results-hero::before {
@@ -7366,14 +7373,15 @@
 
   [data-public-design="visceral-brutalist-archive"] [data-design-reference="search-archive-v4"] .category-results-hero h1 {
     max-width: calc(100% - 45px);
-    font-size: clamp(44px, 13vw, 62px);
+    font-size: clamp(40px, 11.5vw, 54px);
     line-height: .91;
     overflow-wrap: anywhere;
   }
 
   [data-public-design="visceral-brutalist-archive"] [data-design-reference="search-archive-v4"] .category-results-hero > p {
     max-width: calc(100% - 45px);
-    font-size: 17px;
+    margin-top: 18px;
+    font-size: 16.5px;
   }
 
   [data-public-design="visceral-brutalist-archive"] [data-design-reference="search-archive-v4"] .category-results-section {
@@ -7423,5 +7431,4539 @@
   [data-public-design="visceral-brutalist-archive"] .category-results-page .category-article-card .article-card__media img,
   [data-public-design="visceral-brutalist-archive"] .category-results-page .category-article-card__link svg {
     transition: none;
+  }
+}
+
+/* Visceral Mag archive: compact editorial landing page. */
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  height: clamp(380px, 50svh, 480px);
+  min-height: 380px;
+  margin: 0;
+  padding: clamp(48px, 6vw, 76px) max(24px, calc((100% - 1240px) / 2));
+  overflow: hidden;
+  border: 0;
+  border-bottom: 5px solid var(--production-ink);
+  background: #f5f5f0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] .visceral-archive-hero::before {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  right: 0;
+  width: clamp(260px, 31vw, 470px);
+  height: 100%;
+  background: var(--brand-green);
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .visceral-archive-hero::after {
+  position: absolute;
+  z-index: -1;
+  right: clamp(78px, 10vw, 154px);
+  bottom: -88px;
+  width: clamp(210px, 24vw, 360px);
+  aspect-ratio: 1;
+  border: 4px solid var(--production-ink);
+  border-radius: 50%;
+  background: var(--brand-pink);
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive-hero h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 12ch;
+  margin: 0;
+  color: var(--production-ink);
+  font-size: clamp(50px, 6.1vw, 84px);
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.055em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive-hero > p {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 24px 0 0;
+  color: #42423e;
+  font-family: var(--production-serif);
+  font-size: clamp(17px, 1.45vw, 21px);
+  line-height: 1.55;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(72px, 8vw, 108px) max(24px, calc((100% - 1240px) / 2)) clamp(90px, 10vw, 136px);
+  border: 0;
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading {
+  display: flex;
+  gap: 30px;
+  margin: 0 0 clamp(42px, 5vw, 66px);
+  padding: 0 0 24px;
+  border-bottom: 3px solid var(--production-ink);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+[data-public-design="visceral-brutalist-archive"] .visceral-archive__heading > div {
+  display: grid;
+  gap: 10px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .visceral-archive__heading > div > span {
+  color: var(--brand-green);
+  font-family: var(--production-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading h2 {
+  margin: 0;
+  font-size: clamp(38px, 4.6vw, 60px);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.04em;
+  text-transform: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading > a {
+  display: inline-flex;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 2px solid var(--production-ink);
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--production-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading > a:hover {
+  background: var(--production-ink);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading > a svg {
+  transition: transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading > a:hover svg {
+  transform: translateX(3px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page a:focus-visible {
+  outline: 3px solid var(--brand-pink);
+  outline-offset: 4px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story {
+  margin: 0 0 clamp(52px, 7vw, 84px);
+  padding: 0;
+  border: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card--featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, .75fr);
+  gap: 0;
+  overflow: hidden;
+  border: 2px solid var(--production-ink);
+  border-top-width: 6px;
+  border-top-color: var(--brand-green);
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__media {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border-right: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__media img,
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__media video {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  aspect-ratio: auto;
+  object-fit: cover;
+  filter: none;
+  transition: transform 300ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card:hover .article-card__media img,
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card:focus-within .article-card__media img {
+  filter: none;
+  transform: scale(1.025);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__body {
+  display: grid;
+  min-width: 0;
+  padding: clamp(32px, 4vw, 54px);
+  align-content: center;
+  gap: 20px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .article-card .eyebrow {
+  margin: 0;
+  color: var(--brand-green);
+  font-family: var(--production-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story h2 {
+  margin: 0;
+  font-size: clamp(40px, 4.25vw, 62px);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.045em;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .article-card h2 a,
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .article-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__body > p:not(.eyebrow):not(.article-card__meta) {
+  margin: 0;
+  color: #42423e;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .article-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  color: #55554f;
+  gap: 8px;
+  align-items: center;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .article-card__meta a {
+  color: inherit;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .article-card__meta a:hover {
+  color: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  border: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card--compact {
+  display: grid;
+  min-width: 0;
+  height: 100%;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--production-ink);
+  border-top: 6px solid var(--brand-pink);
+  background: #ffffff;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card--compact:nth-child(even) {
+  border-top-color: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card--compact:hover,
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card--compact:focus-within {
+  transform: translateY(-5px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card__media {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border-bottom: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card__media img,
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card__media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: none;
+  transition: transform 260ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card:hover .article-card__media img,
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card:focus-within .article-card__media img {
+  filter: none;
+  transform: scale(1.035);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card__body {
+  display: flex;
+  min-width: 0;
+  padding: 24px 22px 26px;
+  flex-direction: column;
+  gap: 15px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed h3 {
+  margin: 0;
+  font-size: clamp(28px, 2.5vw, 36px);
+  font-weight: 500;
+  line-height: .98;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card__body > p:not(.eyebrow):not(.article-card__meta) {
+  margin: 0;
+  color: #42423e;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed .article-card__meta {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+@media (max-width: 980px) {
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card--featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__media {
+    border-right: 0;
+    border-bottom: 2px solid var(--production-ink);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__media img,
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__media video {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 700px) {
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive-hero {
+    height: clamp(330px, 50svh, 400px);
+    min-height: 330px;
+    padding: 48px 18px 44px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .visceral-archive-hero::before {
+    width: 82px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .visceral-archive-hero::after {
+    right: -76px;
+    bottom: -30px;
+    width: 176px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive-hero h1 {
+    max-width: calc(100% - 44px);
+    font-size: clamp(40px, 11.5vw, 54px);
+    line-height: .91;
+    overflow-wrap: anywhere;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive-hero > p {
+    max-width: calc(100% - 44px);
+    margin-top: 18px;
+    font-size: 16.5px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive {
+    padding: 62px 18px 84px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading {
+    gap: 24px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading h2 {
+    font-size: clamp(36px, 11vw, 48px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading > a {
+    width: 100%;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__media img,
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__media video {
+    aspect-ratio: 4 / 3;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story .article-card__body {
+    padding: 28px 20px 30px;
+    gap: 16px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-lead-story h2 {
+    font-size: clamp(34px, 10.5vw, 46px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-story-feed h3 {
+    font-size: clamp(30px, 9vw, 40px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading > a,
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .visceral-archive__heading > a svg,
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .article-card,
+  [data-public-design="visceral-brutalist-archive"] .figma-archive-page .article-card__media img {
+    transition: none;
+  }
+}
+
+/* Homepage remaster: the existing content in a cleaner editorial rhythm. */
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel {
+  border-bottom: 5px solid var(--production-ink);
+  background: var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__media-link {
+  overflow: hidden;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__media img {
+  filter: saturate(1.02) contrast(1.02);
+  transition: filter 260ms ease, transform 700ms cubic-bezier(.2, .7, .2, 1);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__media-link:hover img,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__media-link:focus-visible img {
+  filter: saturate(1.06) contrast(1.035);
+  transform: scale(1.012);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__copy {
+  align-self: stretch;
+  grid-template-columns: minmax(0, 900px);
+  gap: 0;
+  padding: clamp(72px, 9vh, 112px) max(92px, calc((100% - 1240px) / 2));
+  background: linear-gradient(180deg, rgba(17, 17, 17, .3), rgba(17, 17, 17, .62));
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__copy-link {
+  width: 100%;
+  display: grid !important;
+  justify-items: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__copy h1,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__copy h2 {
+  max-width: 11ch;
+  margin: 8px 0 15px;
+  font-size: clamp(48px, 6.1vw, 86px);
+  font-weight: 500;
+  line-height: .89;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__copy p:not(.eyebrow) {
+  max-width: 640px;
+  margin-right: auto;
+  margin-left: auto;
+  color: rgba(255, 255, 255, .84);
+  font-family: var(--production-serif);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.55;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__control {
+  top: 50%;
+  bottom: auto;
+  width: 58px;
+  min-height: 58px;
+  border: 2px solid rgba(255, 255, 255, .82);
+  background: rgba(17, 17, 17, .72);
+  color: #ffffff;
+  opacity: 1;
+  filter: none;
+  transform: translateY(-50%);
+  backdrop-filter: blur(7px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__control--previous,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__control--next,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel:hover .home-carousel__control,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel:focus-within .home-carousel__control {
+  transform: translateY(-50%);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__control--previous {
+  left: clamp(18px, 3vw, 42px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__control--next {
+  right: clamp(18px, 3vw, 42px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__control:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__control:focus-visible {
+  border-color: var(--production-ink);
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  transform: translateY(-50%) scale(1.06);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(74px, 8vw, 110px) max(24px, calc((100% - 1240px) / 2)) clamp(88px, 9vw, 126px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick {
+  border: 0;
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory {
+  border-top: 3px solid var(--production-ink);
+  border-bottom: 3px solid var(--production-ink);
+  background: #f5f5f0;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .section-heading-row,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory .section-heading-row,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .section-heading-row {
+  display: flex;
+  gap: 28px;
+  margin: 0 0 clamp(42px, 5vw, 64px);
+  padding: 0 0 24px;
+  border-bottom: 3px solid var(--production-ink);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .section-heading-row h2,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory .section-heading-row h2,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .section-heading-row h2 {
+  margin: 0;
+  font-size: clamp(40px, 4.8vw, 62px);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.045em;
+  text-transform: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .section-heading-row > a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 2px solid var(--production-ink);
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--production-ui);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .section-heading-row > a:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .section-heading-row > a:focus-visible {
+  background: var(--production-ink);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .section-heading-row > a svg,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card > svg,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta > a svg {
+  transition: transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .section-heading-row > a:hover svg,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:hover > svg,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta > a:hover svg {
+  transform: translateX(3px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .figma-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  border: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card {
+  display: grid;
+  min-width: 0;
+  height: 100%;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--production-ink);
+  border-top: 6px solid var(--brand-pink);
+  background: #ffffff;
+  transition: transform 180ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card:nth-child(even) {
+  border-top-color: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card:focus-within {
+  transform: translateY(-5px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card__media {
+  overflow: hidden;
+  border: 0;
+  border-bottom: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card__media img,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card__media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: none;
+  transition: transform 280ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card:hover .article-card__media img,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card:focus-within .article-card__media img {
+  filter: none;
+  transform: scale(1.035);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card__body {
+  display: flex;
+  min-width: 0;
+  padding: 25px 22px 27px;
+  flex-direction: column;
+  gap: 15px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card__body h3 {
+  margin: 0;
+  font-size: clamp(29px, 2.6vw, 38px);
+  font-weight: 500;
+  line-height: .98;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card__body > p:not(.eyebrow):not(.article-card__meta) {
+  margin: 0;
+  color: #42423e;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card__meta {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  border: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card {
+  position: relative;
+  min-height: 160px;
+  padding: 27px 24px 25px;
+  border: 2px solid var(--production-ink);
+  border-top: 6px solid var(--brand-green);
+  background: #ffffff;
+  transition: background-color 170ms ease, color 170ms ease, transform 170ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:nth-child(3n + 2) {
+  border-top-color: var(--brand-pink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:focus-visible {
+  background: var(--brand-green);
+  color: #ffffff;
+  transform: translateY(-5px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:nth-child(3n + 2):hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:nth-child(3n + 2):focus-visible {
+  background: var(--brand-pink);
+  color: var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__copy strong {
+  font-size: clamp(27px, 2.4vw, 36px);
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__number {
+  color: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:nth-child(3n + 2) .home-section-directory__number {
+  color: var(--brand-pink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:hover .home-section-directory__number,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:focus-visible .home-section-directory__number {
+  color: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:nth-child(3n + 2):hover .home-section-directory__number,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card:nth-child(3n + 2):focus-visible .home-section-directory__number {
+  color: var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, .75fr);
+  gap: 0;
+  overflow: hidden;
+  border: 2px solid var(--production-ink);
+  border-top: 6px solid var(--brand-green);
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card__media {
+  overflow: hidden;
+  border: 0;
+  border-right: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured .article-card__media img,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured .article-card__media video {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  aspect-ratio: auto;
+  object-fit: cover;
+  filter: none;
+  transition: transform 300ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card:hover .article-card__media img,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card:focus-within .article-card__media img {
+  filter: none;
+  transform: scale(1.025);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured .article-card__body {
+  display: grid;
+  min-width: 0;
+  padding: clamp(32px, 4vw, 54px);
+  border-left: 0;
+  align-content: center;
+  gap: 20px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured h2 {
+  margin: 0;
+  font-size: clamp(40px, 4.25vw, 62px);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.045em;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card__body > p:not(.eyebrow):not(.article-card__meta) {
+  margin: 0;
+  color: #42423e;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: minmax(0, 1fr) auto;
+  width: 100%;
+  max-width: none;
+  min-height: 420px;
+  margin: 0;
+  padding: clamp(70px, 8vw, 106px) max(24px, calc((100% - 1240px) / 2));
+  overflow: hidden;
+  border: 0;
+  border-top: 5px solid var(--production-ink);
+  border-bottom: 5px solid var(--production-ink);
+  margin-bottom: clamp(44px, 5vw, 72px);
+  background: var(--brand-green);
+  color: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta::after {
+  position: absolute;
+  z-index: -1;
+  right: clamp(-112px, -5vw, -46px);
+  bottom: clamp(-160px, -9vw, -88px);
+  width: clamp(310px, 35vw, 520px);
+  aspect-ratio: 1;
+  border: 4px solid var(--production-ink);
+  border-radius: 50%;
+  background: var(--brand-pink);
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta > div {
+  position: relative;
+  z-index: 1;
+  max-width: 790px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta .home-section-kicker {
+  color: var(--brand-pink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta h2 {
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-size: clamp(48px, 6.2vw, 84px);
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.05em;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta p:last-child {
+  max-width: 610px;
+  color: rgba(255, 255, 255, .82);
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.58;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta > a {
+  position: relative;
+  z-index: 1;
+  min-width: 205px;
+  min-height: 56px;
+  border: 2px solid var(--production-ink);
+  border-radius: 0;
+  background: var(--brand-pink);
+  color: var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta > a:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta > a:focus-visible {
+  background: #ffffff;
+  color: var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] a:focus-visible {
+  outline: 3px solid var(--brand-pink);
+  outline-offset: 4px;
+}
+
+@media (max-width: 980px) {
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .figma-card-grid,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card__media {
+    border-right: 0;
+    border-bottom: 2px solid var(--production-ink);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured .article-card__media img,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured .article-card__media video {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 700px) {
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__copy {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding: max(76px, env(safe-area-inset-top)) 70px max(76px, env(safe-area-inset-bottom));
+    align-content: center;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__copy h1,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__copy h2 {
+    max-width: 10ch;
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__control {
+    top: 50%;
+    bottom: auto;
+    width: 50px;
+    min-height: 50px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick {
+    padding: 64px 18px 82px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .section-heading-row,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory .section-heading-row,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .section-heading-row {
+    gap: 24px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .section-heading-row > a {
+    width: 100%;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .figma-card-grid,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .figma-home__recent-shell .article-card__body h3 {
+    font-size: clamp(30px, 9vw, 40px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured .article-card__media img,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured .article-card__media video {
+    aspect-ratio: 4 / 3;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured .article-card__body {
+    padding: 28px 20px 30px;
+    gap: 16px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-editors-pick .article-card--featured h2 {
+    font-size: clamp(34px, 10.5vw, 46px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 34px;
+    margin-bottom: 44px;
+    padding: 74px 18px 86px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta::after {
+    right: -180px;
+    bottom: -150px;
+    width: 360px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta h2 {
+    font-size: clamp(46px, 13vw, 64px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-submission-cta > a {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__media img,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-carousel__control,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .article-card,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .article-card__media img,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] .home-section-directory__card,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] a,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="home-brutalist-broadsheet"] svg {
+    transition: none;
+  }
+}
+
+/* Shared half-screen hero system: About, Content, Contributors, Photography, Contact. */
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page,
+[data-public-design="visceral-brutalist-archive"] .figma-content-page,
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page,
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page,
+[data-public-design="visceral-brutalist-archive"] .figma-contact-page {
+  --public-half-hero-height: clamp(380px, 50svh, 480px);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* About keeps the client image treatment, but at the new shared hero scale. */
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--public-half-hero-height);
+  min-height: 380px;
+  max-height: 480px;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 5px solid var(--production-ink);
+  background: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner > img,
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__placeholder {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner > img {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.82) contrast(1.05) brightness(.58);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__placeholder {
+  background:
+    radial-gradient(circle at 74% 32%, rgba(255, 255, 255, .08) 0 1px, transparent 1.5px),
+    linear-gradient(118deg, var(--brand-green) 0 69%, #1c2f1d 69% 100%);
+  background-size: 22px 22px, auto;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__placeholder::before,
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__placeholder::after {
+  display: none;
+  content: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__placeholder img {
+  position: absolute;
+  right: clamp(-42px, -2vw, -18px);
+  bottom: -34%;
+  width: clamp(300px, 34vw, 500px);
+  height: clamp(300px, 34vw, 500px);
+  margin: 0;
+  background: transparent;
+  filter: invert(1);
+  object-fit: contain;
+  opacity: .1;
+  transform: rotate(-7deg);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 18, 11, .76) 0 56%, rgba(10, 18, 11, .22) 82%, rgba(10, 18, 11, .08));
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  box-sizing: border-box;
+  width: min(1240px, calc(100% - 48px));
+  height: 100%;
+  margin: 0 auto;
+  padding: clamp(44px, 5vw, 68px) 0;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__content h1 {
+  width: auto;
+  max-width: 11ch;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(50px, 6.2vw, 82px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.055em;
+  text-wrap: balance;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__content h1 span {
+  display: inline;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__content > span {
+  max-width: 660px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, .82);
+  font-family: var(--production-serif);
+  font-size: clamp(17px, 1.45vw, 20px);
+  line-height: 1.5;
+}
+
+/* Content opens with a single, uncluttered half-screen introduction. */
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 100%;
+  height: var(--public-half-hero-height);
+  min-height: 380px;
+  max-height: 480px;
+  gap: 0;
+  padding: clamp(34px, 4.2vw, 54px) max(24px, calc((100% - 1240px) / 2));
+  overflow: hidden;
+  border: 0;
+  border-bottom: 5px solid var(--production-ink);
+  background: #f5f5f0;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero::before {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  right: 0;
+  left: auto;
+  width: clamp(250px, 31vw, 470px);
+  height: 100%;
+  background: var(--brand-green);
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero::after {
+  display: none;
+  content: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-editorial-hero__accent {
+  position: absolute;
+  z-index: 0;
+  right: clamp(28px, 5vw, 84px);
+  bottom: -82px;
+  display: block;
+  width: clamp(180px, 20vw, 290px);
+  aspect-ratio: 1;
+  border: 4px solid var(--production-ink);
+  border-radius: 50%;
+  background: #ED0FF0;
+  pointer-events: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .content-editorial-hero__copy {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 65%);
+  min-width: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero .content-editorial-hero__copy h1 {
+  max-width: 8ch;
+  margin: 0;
+  font-size: clamp(50px, 6.1vw, 78px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.06em;
+  text-transform: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero .content-editorial-hero__copy > p {
+  max-width: 570px;
+  margin: 22px 0 0;
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.5;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-editorial-hero__actions {
+  gap: 10px;
+  margin-top: 24px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-editorial-hero__actions a {
+  min-height: 44px;
+  padding: 11px 15px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-stats {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  margin: 0;
+  padding: 0 max(24px, calc((100% - 1240px) / 2));
+  border-bottom: 3px solid var(--production-ink);
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-stats > div {
+  display: flex;
+  min-height: 106px;
+  padding: 18px clamp(16px, 2.4vw, 30px);
+  border-right: 2px solid var(--production-ink);
+  border-bottom: 0;
+  background: #ffffff;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-stats > div:first-child {
+  border-left: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-stats dd {
+  color: var(--brand-green);
+  font-size: clamp(42px, 4.4vw, 62px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-stats dt {
+  color: var(--production-ink);
+  font-size: 9px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-width: 0;
+  max-height: 360px;
+  grid-template-rows: minmax(150px, 1.08fr) minmax(130px, .92fr);
+  overflow: hidden;
+  border: 3px solid var(--production-ink);
+  background: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature::before {
+  top: -9px;
+  right: -9px;
+  width: 58px;
+  height: 58px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature__media {
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature > div {
+  padding: 18px 20px 20px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature > div > p {
+  margin-bottom: 8px;
+  font-size: 9px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature h2 {
+  font-size: clamp(25px, 2.5vw, 36px);
+  line-height: .96;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature > div > span {
+  margin-top: 11px;
+  font-size: 9px;
+}
+
+/* Contributors: an uncluttered half-screen hero with its metrics in a separate strip. */
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 100%;
+  height: var(--public-half-hero-height);
+  min-height: 380px;
+  max-height: 480px;
+  gap: 0;
+  margin: 0;
+  padding: clamp(48px, 5vw, 66px) max(24px, calc((100% - 1240px) / 2));
+  overflow: hidden;
+  border: 0;
+  border-bottom: 5px solid var(--production-ink);
+  background: #f5f5f0;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero::before {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  right: 0;
+  width: clamp(250px, 31vw, 470px);
+  height: 100%;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  background: var(--brand-green);
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero::after {
+  position: absolute;
+  z-index: -1;
+  right: clamp(28px, 5vw, 84px);
+  bottom: -82px;
+  width: clamp(180px, 20vw, 290px);
+  aspect-ratio: 1;
+  border: 4px solid var(--production-ink);
+  border-radius: 50%;
+  background: #ED0FF0;
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__copy {
+  width: min(760px, 65%);
+  max-width: none;
+  min-width: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__copy h1 {
+  max-width: 13ch;
+  font-size: clamp(46px, 5.35vw, 70px);
+  line-height: .9;
+  letter-spacing: -.05em;
+  overflow-wrap: normal;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__copy > p {
+  max-width: 650px;
+  margin: 22px 0 0;
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.5;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__link {
+  margin-top: 22px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats {
+  box-sizing: border-box;
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0 max(24px, calc((100% - 1240px) / 2));
+  border: 0;
+  border-bottom: 3px solid var(--production-ink);
+  background: #ffffff;
+  box-shadow: none;
+  color: var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats > div {
+  display: flex;
+  min-height: 106px;
+  padding: 18px clamp(16px, 2.4vw, 30px);
+  border-right: 2px solid var(--production-ink);
+  border-bottom: 0;
+  background: #ffffff;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats > div:first-child {
+  border-left: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats dt {
+  max-width: 110px;
+  color: var(--production-ink);
+  font-size: 9px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats dd {
+  color: var(--brand-green);
+  font-size: clamp(42px, 4.4vw, 62px);
+}
+
+/* Photography still opens directly on the mood board; its heading becomes the half-screen hero. */
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 clamp(86px, 9vw, 128px);
+  border: 0;
+  background-color: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--public-half-hero-height);
+  min-height: 380px;
+  max-height: 480px;
+  gap: 34px;
+  margin: 0 0 clamp(64px, 7vw, 96px);
+  padding: clamp(48px, 6vw, 76px) max(24px, calc((100% - 1240px) / 2));
+  overflow: hidden;
+  border: 0;
+  border-bottom: 5px solid var(--production-ink);
+  background: #f5f5f0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row::before {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  right: 0;
+  width: clamp(260px, 31vw, 470px);
+  height: 100%;
+  background: var(--brand-green);
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row::after {
+  position: absolute;
+  z-index: -1;
+  right: clamp(78px, 10vw, 154px);
+  bottom: -90px;
+  width: clamp(205px, 23vw, 340px);
+  aspect-ratio: 1;
+  border: 4px solid var(--production-ink);
+  border-radius: 50%;
+  background: var(--brand-pink);
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 9ch;
+  margin: 0;
+  font-size: clamp(52px, 6.4vw, 86px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.055em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-submit-cta {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  min-height: 50px;
+  padding: 0 19px;
+  border: 2px solid var(--production-ink);
+  border-radius: 0;
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  box-shadow: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-submit-cta:hover,
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-submit-cta:focus-visible {
+  background: #ffffff;
+  color: var(--production-ink);
+  transform: translateY(-2px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .home-media-masonry {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* Contact opens directly on one spacious, legible form-and-guidance composition. */
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-layout {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: minmax(0, 1.16fr) minmax(320px, .84fr);
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  gap: clamp(24px, 3vw, 38px);
+  margin: 0;
+  padding: clamp(58px, 6vw, 84px) max(24px, calc((100% - 1180px) / 2));
+  border: 0;
+  border-bottom: 5px solid var(--production-ink);
+  background: #ffffff;
+  align-items: start;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: clamp(28px, 3vw, 42px);
+  overflow: hidden;
+  border: 2px solid var(--production-ink);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel {
+  gap: 16px;
+  border-top: 7px solid var(--brand-green);
+  background: #f7f7f2;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel {
+  gap: 14px;
+  border-top: 7px solid var(--brand-pink);
+  background: var(--brand-green);
+  color: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel::after {
+  display: none;
+  content: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel h2 {
+  max-width: 9ch;
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: clamp(40px, 4.5vw, 60px);
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.045em;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel p {
+  position: relative;
+  z-index: 1;
+  max-width: 48ch;
+  color: rgba(255, 255, 255, .86);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .contact-identity-fields {
+  gap: 12px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel label:not([data-field="spam-protection"]) {
+  gap: 6px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel label > span {
+  font-size: clamp(17px, 1.35vw, 19px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel input,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel select,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel textarea {
+  min-height: 46px;
+  padding: 11px 13px;
+  border-radius: 0;
+  border: 2px solid var(--production-ink);
+  background: #ffffff;
+  font-size: 15px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel textarea {
+  min-height: 126px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel input,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel select,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel textarea,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel > button {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel > button {
+  min-height: 52px;
+  border-radius: 0;
+  background: var(--brand-pink);
+  box-shadow: none;
+  font-size: 16px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel > button:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel > button:focus-visible {
+  background: var(--brand-green);
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero {
+    gap: 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, .48fr);
+    gap: 30px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: none;
+    min-height: 0;
+    gap: 24px;
+    padding: 56px max(24px, calc((100% - 700px) / 2)) 72px;
+  }
+}
+
+@media (max-width: 700px) {
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page,
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page,
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page,
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page {
+    --public-half-hero-height: clamp(330px, 50svh, 400px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner {
+    height: var(--public-half-hero-height);
+    min-height: 330px;
+    max-height: 400px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__content {
+    width: calc(100% - 36px);
+    max-width: calc(100% - 36px);
+    padding: 42px 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__content h1 {
+    max-width: calc(100% - 32px);
+    font-size: clamp(39px, 11vw, 50px);
+    line-height: .9;
+    overflow-wrap: normal;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner__content > span {
+    max-width: calc(100% - 32px);
+    margin-top: 18px;
+    font-size: 15px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero {
+    height: var(--public-half-hero-height);
+    min-height: 330px;
+    max-height: 400px;
+    gap: 0;
+    padding: 44px 18px 40px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero::before {
+    width: 82px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page .content-editorial-hero__accent {
+    right: -70px;
+    bottom: -22px;
+    width: 170px;
+    background: #ED0FF0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero .content-editorial-hero__copy h1 {
+    max-width: calc(100% - 44px);
+    font-size: clamp(42px, 12vw, 54px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page .content-editorial-hero__copy {
+    width: calc(100% - 44px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-hero .content-editorial-hero__copy > p {
+    max-width: calc(100% - 44px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page .content-editorial-hero__actions {
+    display: flex;
+    max-width: calc(100% - 44px);
+    flex-wrap: nowrap;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page .content-editorial-hero__actions a {
+    min-width: 0;
+    min-height: 46px;
+    padding: 9px 8px;
+    flex: 1 1 0;
+    justify-content: center;
+    font-size: 8px;
+    letter-spacing: .07em;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-stats {
+    padding: 0 14px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-stats > div {
+    min-height: 92px;
+    gap: 7px;
+    padding: 13px 11px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-stats dd {
+    font-size: clamp(34px, 10vw, 42px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page > .content-editorial-stats dt {
+    max-width: 100%;
+    font-size: 7px;
+    line-height: 1.3;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature {
+    max-height: none;
+    grid-template-columns: minmax(116px, .72fr) minmax(0, 1.28fr);
+    grid-template-rows: minmax(132px, auto);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature__media {
+    border-right: 3px solid var(--production-ink);
+    border-bottom: 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature h2 {
+    font-size: clamp(22px, 7vw, 30px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero {
+    height: auto;
+    min-height: clamp(380px, 50svh, 430px);
+    max-height: none;
+    gap: 0;
+    padding: 42px 18px 38px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero::before {
+    top: 0;
+    right: 0;
+    width: 82px;
+    height: 100%;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero::after {
+    right: -70px;
+    bottom: -22px;
+    width: 170px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__copy {
+    width: calc(100% - 44px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__copy h1 {
+    max-width: 100%;
+    font-size: clamp(36px, 10.2vw, 46px);
+    line-height: .92;
+    overflow-wrap: normal;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__copy > p {
+    max-width: 100%;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__link {
+    margin-top: 16px;
+    font-size: 10px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0 14px;
+    background: #ffffff;
+    box-shadow: none;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats > div {
+    min-height: 92px;
+    gap: 7px;
+    padding: 13px 11px;
+    border-right: 2px solid var(--production-ink);
+    border-bottom: 0;
+    background: #ffffff;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats > div:last-child {
+    border-right: 2px solid var(--production-ink);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats dt {
+    max-width: 100%;
+    color: var(--production-ink);
+    font-size: 7px;
+    letter-spacing: .07em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contributors-page .contributors-hero__stats dd {
+    color: var(--brand-green);
+    font-size: clamp(34px, 10vw, 42px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row {
+    height: var(--public-half-hero-height);
+    min-height: 330px;
+    max-height: 400px;
+    gap: 24px;
+    margin-bottom: 58px;
+    padding: 48px 18px 44px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row::before {
+    width: 82px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row::after {
+    right: -74px;
+    bottom: -24px;
+    width: 170px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row h2 {
+    max-width: calc(100% - 44px);
+    font-size: clamp(42px, 12vw, 56px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-submit-cta {
+    width: calc(100% - 44px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .home-media-masonry {
+    width: calc(100% - 28px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-layout {
+    width: calc(100% - 32px);
+    gap: 22px;
+    margin: 0 16px;
+    padding: 42px 0 64px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel {
+    padding: 24px 20px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .contact-identity-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel h2 {
+    font-size: clamp(40px, 12vw, 54px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-client-banner > img,
+  [data-public-design="visceral-brutalist-archive"] .figma-content-page .content-hero-feature__media img,
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-submit-cta {
+    transition: none;
+  }
+}
+
+/* About content remaster: the existing story in a tighter editorial rhythm. */
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-section__inner {
+  width: min(1180px, calc(100% - 48px));
+  padding: clamp(76px, 8vw, 108px) 0 clamp(84px, 9vw, 120px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-opening-row {
+  grid-template-columns: minmax(250px, .64fr) minmax(0, 1.36fr);
+  gap: clamp(48px, 7vw, 96px);
+  padding-bottom: clamp(44px, 5vw, 62px);
+  border-bottom: 3px solid var(--production-ink);
+  align-items: start;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-story-heading h2 {
+  max-width: 7ch;
+  margin: 16px 0 0;
+  font-size: clamp(50px, 5.6vw, 74px);
+  line-height: .9;
+  letter-spacing: -.05em;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-opening {
+  padding-top: 8px;
+  font-size: clamp(23px, 2.15vw, 31px);
+  line-height: 1.42;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy {
+  display: grid;
+  width: min(100%, 1080px);
+  max-width: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  padding-top: clamp(50px, 6vw, 72px);
+  text-align: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy > p {
+  display: flex;
+  min-height: 270px;
+  margin: 0;
+  padding: clamp(28px, 3.4vw, 44px);
+  border: 2px solid var(--production-ink);
+  border-top: 7px solid var(--brand-green);
+  background: #f7f7f2;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.66;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy > p + p {
+  margin: 0 0 0 -2px;
+  border-top-color: var(--brand-pink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy .about-editorial-standfirst {
+  display: grid;
+  min-height: 250px;
+  grid-column: 1 / -1;
+  place-items: center;
+  margin: 26px 0 0;
+  padding: clamp(36px, 4.5vw, 58px);
+  border: 2px solid var(--production-ink);
+  border-top: 7px solid var(--brand-pink);
+  background: var(--brand-green);
+  color: #ffffff;
+  text-align: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy .about-editorial-standfirst > span {
+  top: 2px;
+  right: 22px;
+  color: var(--brand-pink);
+  opacity: 1;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy .about-editorial-standfirst > p {
+  max-width: 800px;
+  color: #ffffff;
+  font-size: clamp(24px, 2.35vw, 34px);
+  line-height: 1.32;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-name-restored {
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+  gap: clamp(48px, 7vw, 90px);
+  padding: clamp(80px, 8vw, 112px) max(24px, calc((100% - 1180px) / 2));
+  border-top: 0;
+  border-bottom: 3px solid var(--production-ink);
+  background: #f5f5f0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-name-restored .about-name-logo {
+  min-height: clamp(330px, 35vw, 470px);
+  padding: clamp(30px, 4vw, 52px);
+  border: 2px solid var(--production-ink);
+  border-top: 7px solid var(--brand-pink);
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-name-restored .about-name-logo img {
+  width: min(92%, 500px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-name-restored .about-editorial-copy h2 {
+  margin-bottom: 28px;
+  font-size: clamp(44px, 5vw, 66px);
+  line-height: .92;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-name-restored .about-editorial-copy p {
+  max-width: 62ch;
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.68;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-section {
+  border-bottom: 3px solid var(--production-ink);
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-section__inner {
+  width: min(1180px, calc(100% - 48px));
+  padding: clamp(80px, 9vw, 118px) 0 clamp(94px, 10vw, 132px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-heading {
+  gap: 40px;
+  margin-bottom: clamp(40px, 5vw, 62px);
+  padding-bottom: 26px;
+  border-bottom: 3px solid var(--production-ink);
+  align-items: end;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-heading h2 {
+  max-width: 10ch;
+  font-size: clamp(46px, 5vw, 66px);
+  line-height: .92;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-heading__aside {
+  max-width: 390px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-grid {
+  gap: clamp(16px, 2vw, 24px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-card {
+  border: 2px solid var(--production-ink);
+  border-top: 7px solid var(--brand-green);
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-card:nth-child(even) {
+  border-top-color: var(--brand-pink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-card__topline {
+  min-height: 48px;
+  padding: 0 15px;
+  background: #ffffff;
+  color: var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-card__media {
+  aspect-ratio: 4 / 5;
+  border-top: 2px solid var(--production-ink);
+  border-bottom: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-card__body {
+  min-height: 100px;
+  padding: 20px 18px 22px;
+}
+
+/* Contact remaster: matching half-screen hero and a clearer submission workspace. */
+[data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: clamp(380px, 50svh, 480px);
+  min-height: 380px;
+  max-height: 480px;
+  margin: 0;
+  padding: clamp(48px, 5vw, 66px) max(24px, calc((100% - 1240px) / 2));
+  overflow: hidden;
+  border: 0;
+  border-bottom: 5px solid var(--production-ink);
+  background: #f5f5f0;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero::before {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  right: 0;
+  width: clamp(250px, 31vw, 470px);
+  height: 100%;
+  background: var(--brand-green);
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero::after {
+  display: none;
+  content: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero__copy {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 65%);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero h1 {
+  max-width: 8ch;
+  margin: 0;
+  color: var(--production-ink);
+  font-size: clamp(50px, 6.1vw, 78px);
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.055em;
+  text-transform: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero p {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: #3f3f3b;
+  font-family: var(--production-serif);
+  font-size: clamp(17px, 1.45vw, 20px);
+  line-height: 1.5;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero__accent {
+  position: absolute;
+  z-index: 0;
+  right: clamp(28px, 5vw, 84px);
+  bottom: -82px;
+  width: clamp(180px, 20vw, 290px);
+  aspect-ratio: 1;
+  border: 4px solid var(--production-ink);
+  border-radius: 50%;
+  background: #ED0FF0;
+  pointer-events: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-layout {
+  grid-template-columns: minmax(0, 1.12fr) minmax(350px, .88fr);
+  gap: clamp(26px, 3.4vw, 44px);
+  padding: clamp(72px, 8vw, 106px) max(24px, calc((100% - 1180px) / 2));
+  border-bottom: 3px solid var(--production-ink);
+  background: #f5f5f0;
+  align-items: start;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel {
+  padding: clamp(30px, 3.2vw, 44px);
+  border: 2px solid var(--production-ink);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel {
+  gap: 18px;
+  border-top: 7px solid var(--brand-green);
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .contact-form-heading {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 26px;
+  border-bottom: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .contact-form-heading h2 {
+  max-width: 10ch;
+  margin: 0;
+  font-size: clamp(36px, 3.6vw, 50px);
+  font-weight: 500;
+  line-height: .94;
+  letter-spacing: -.04em;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .contact-form-heading p {
+  max-width: 52ch;
+  margin: 0;
+  color: #4b4b46;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel label:not([data-field="spam-protection"]) {
+  gap: 8px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel label > span {
+  font-family: var(--font-editorial, var(--production-serif));
+  font-size: clamp(18px, 1.45vw, 20px);
+  font-weight: 700;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel input,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel select,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel textarea {
+  min-height: 50px;
+  padding: 13px 14px;
+  border: 2px solid var(--production-ink);
+  background: #fafaf7;
+  font-size: 15px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel textarea {
+  min-height: 190px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel > button {
+  min-height: 56px;
+  margin-top: 4px;
+  border: 2px solid var(--production-ink);
+  background: var(--brand-pink);
+  font-size: 15px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel {
+  gap: 0;
+  border-top: 7px solid var(--brand-pink);
+  background: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel h2 {
+  max-width: 10ch;
+  margin: 0 0 26px;
+  color: #ffffff;
+  font-size: clamp(42px, 4.5vw, 60px);
+  line-height: .9;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .contact-inquiry-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0 0 28px;
+  padding: 0 0 28px;
+  border-bottom: 2px solid rgba(255, 255, 255, .5);
+  list-style: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .contact-inquiry-types li {
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 255, 255, .75);
+  color: #ffffff;
+  font-family: var(--production-ui);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel > p {
+  margin: 0;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .28);
+  color: rgba(255, 255, 255, .9);
+  font-size: 14px;
+  line-height: 1.56;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel > p:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+@media (max-width: 980px) {
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: max(24px, calc((100% - 720px) / 2));
+  }
+}
+
+@media (max-width: 700px) {
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-section__inner,
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-section__inner {
+    width: calc(100% - 36px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-opening-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding-bottom: 38px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-story-heading h2 {
+    max-width: none;
+    font-size: clamp(42px, 12vw, 54px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-opening {
+    padding-top: 22px;
+    border-top: 2px solid var(--brand-green);
+    font-size: 20px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy > p {
+    min-height: 0;
+    padding: 28px 22px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy > p + p {
+    margin: -2px 0 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy .about-editorial-standfirst {
+    min-height: 0;
+    margin-top: 20px;
+    padding: 34px 24px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-who-centered-copy .about-editorial-standfirst > p {
+    font-size: clamp(23px, 7vw, 30px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-name-restored {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+    padding: 60px 18px 70px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-name-restored .about-name-logo {
+    min-height: 270px;
+    padding: 24px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-name-restored .about-editorial-copy h2 {
+    font-size: clamp(40px, 12vw, 52px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-heading {
+    display: grid;
+    gap: 24px;
+    align-items: start;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-card__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero {
+    height: clamp(330px, 50svh, 400px);
+    min-height: 330px;
+    max-height: 400px;
+    padding: 44px 18px 40px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero::before {
+    width: 82px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero__copy {
+    width: calc(100% - 104px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero h1 {
+    max-width: 100%;
+    font-size: clamp(42px, 12vw, 54px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero p {
+    margin-top: 18px;
+    font-size: 16px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-contact-page .contact-editorial-hero__accent {
+    right: -70px;
+    bottom: -22px;
+    width: 170px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-layout {
+    width: 100%;
+    gap: 22px;
+    margin: 0;
+    padding: 58px 16px 70px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-form-panel,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel {
+    padding: 26px 20px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .contact-identity-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .contact-form-heading h2 {
+    font-size: clamp(34px, 10vw, 44px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="contact-dispatch-v4"] .figma-contact-info-panel h2 {
+    font-size: clamp(40px, 12vw, 52px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-card,
+  [data-public-design="visceral-brutalist-archive"] .about-editorial-page .about-team-card__media img {
+    transition: none;
+  }
+}
+
+/* Photography remaster: dedicated half-screen hero followed by the mood board. */
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: clamp(380px, 50svh, 480px);
+  min-height: 380px;
+  max-height: 480px;
+  margin: 0;
+  padding: clamp(48px, 5vw, 66px) max(24px, calc((100% - 1240px) / 2));
+  overflow: hidden;
+  border: 0;
+  border-bottom: 5px solid var(--production-ink);
+  background: #f5f5f0;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero::before {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  right: 0;
+  width: clamp(250px, 31vw, 470px);
+  height: 100%;
+  background: var(--brand-green);
+  content: "";
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero::after {
+  display: none;
+  content: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero__copy {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 65%);
+  min-width: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero h1 {
+  max-width: 11ch;
+  margin: 0;
+  color: var(--production-ink);
+  font-size: clamp(50px, 6.1vw, 78px);
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.055em;
+  text-transform: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero p {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: #3f3f3b;
+  font-family: var(--production-serif);
+  font-size: clamp(17px, 1.45vw, 20px);
+  line-height: 1.5;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero__accent {
+  position: absolute;
+  z-index: 0;
+  right: clamp(28px, 5vw, 84px);
+  bottom: -82px;
+  width: clamp(180px, 20vw, 290px);
+  aspect-ratio: 1;
+  border: 4px solid var(--production-ink);
+  border-radius: 50%;
+  background: #ED0FF0;
+  pointer-events: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(72px, 8vw, 108px) 0 clamp(88px, 9vw, 128px);
+  border: 0;
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: min(1240px, calc(100% - 48px));
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  gap: 28px;
+  margin: 0 auto clamp(46px, 5vw, 66px);
+  padding: 0 0 24px;
+  overflow: visible;
+  border: 0;
+  border-bottom: 3px solid var(--production-ink);
+  background: #ffffff;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row::before,
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row::after {
+  display: none;
+  content: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row h2 {
+  position: static;
+  max-width: 12ch;
+  margin: 0;
+  color: var(--production-ink);
+  font-size: clamp(42px, 4.8vw, 64px);
+  font-weight: 500;
+  line-height: .92;
+  letter-spacing: -.045em;
+  text-transform: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-submit-cta {
+  min-height: 50px;
+  padding: 0 18px;
+  border: 2px solid var(--production-ink);
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  box-shadow: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-submit-cta:hover,
+[data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-submit-cta:focus-visible {
+  background: var(--brand-green);
+  color: #ffffff;
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero {
+    height: clamp(330px, 50svh, 400px);
+    min-height: 330px;
+    max-height: 400px;
+    padding: 44px 18px 40px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero::before {
+    width: 82px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero__copy {
+    width: calc(100% - 104px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero h1 {
+    max-width: 100%;
+    font-size: clamp(40px, 11.2vw, 52px);
+    overflow-wrap: normal;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero p {
+    margin-top: 18px;
+    font-size: 16px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-editorial-hero__accent {
+    right: -70px;
+    bottom: -22px;
+    width: 170px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell {
+    padding: 58px 0 78px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row {
+    width: calc(100% - 36px);
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    gap: 22px;
+    margin-bottom: 38px;
+    padding: 0 0 22px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-moodboard-shell > .section-heading-row h2 {
+    max-width: 100%;
+    font-size: clamp(38px, 11vw, 50px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .photography-moodboard-page .photography-submit-cta {
+    width: 100%;
+  }
+}
+
+/* August 2026 global shell refinement: calm, responsive navigation and footer. */
+[data-public-design="visceral-brutalist-archive"] .production-editorial-header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  min-height: 84px;
+  padding: 0;
+  overflow: visible;
+  border-top: 4px solid #102718;
+  border-bottom: 1px solid rgba(24, 23, 22, .16);
+  background: rgba(255, 255, 252, .96);
+  box-shadow: 0 10px 30px rgba(18, 40, 24, .055);
+  backdrop-filter: blur(18px) saturate(135%);
+}
+
+[data-public-design="visceral-brutalist-archive"] .header-topline {
+  width: min(1360px, calc(100% - 48px));
+  min-height: 80px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(22px, 3vw, 44px);
+  padding: 8px 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .header-topline .brand-mark {
+  width: 136px;
+  height: 66px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+[data-public-design="visceral-brutalist-archive"] .header-topline .brand-logo {
+  width: 128px;
+  height: 64px;
+  margin: 0;
+  object-fit: contain;
+  object-position: left center;
+  background: transparent;
+  box-shadow: none;
+  filter: grayscale(1) contrast(1.2);
+  transform: none;
+  transform-origin: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] .final-design-navigation {
+  position: static;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(14px, 2vw, 28px);
+  border: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-navigation-cluster {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-public-navigation {
+  width: auto;
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  padding: 0;
+  border: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a {
+  position: relative;
+  width: auto;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 999px;
+  color: var(--production-ink);
+  font-family: var(--production-ui);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .035em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a::after,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a::after {
+  right: 12px;
+  bottom: 6px;
+  left: 12px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--brand-pink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a:hover,
+[data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a:focus-visible,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a:hover,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a:focus-visible {
+  background: transparent;
+  color: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a[aria-current="page"],
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a[aria-current="page"] {
+  background: rgba(49, 83, 50, .09);
+  color: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a:hover::after,
+[data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a:focus-visible::after,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a:hover::after,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a[aria-current="page"]::after,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a[aria-current="page"]::after {
+  transform: scaleX(0);
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown {
+  position: relative;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle {
+  width: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  display: inline-grid;
+  place-items: center;
+  margin-left: -5px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--production-ink);
+  cursor: pointer;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle:hover,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle:focus-visible,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle[aria-expanded="true"] {
+  border-color: rgba(49, 83, 50, .24);
+  background: var(--brand-green);
+  color: #fff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle svg {
+  display: block;
+  transition: transform 180ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  z-index: 90;
+  width: min(570px, calc(100vw - 48px));
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  padding: 12px;
+  border: 2px solid var(--production-ink);
+  border-radius: 16px;
+  background: #102718;
+  box-shadow: 0 22px 50px rgba(8, 22, 13, .24), 6px 6px 0 var(--brand-pink);
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-menu[hidden] {
+  display: none !important;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-menu[data-open="true"] {
+  animation: global-shell-menu-in 180ms ease-out both;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-menu a {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 9px;
+  color: rgba(255, 255, 255, .84);
+  font-family: var(--production-ui);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: color 150ms ease, background-color 150ms ease, transform 150ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .primary-nav-menu a:hover,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-menu a:focus-visible,
+[data-public-design="visceral-brutalist-archive"] .primary-nav-menu a[aria-current="page"] {
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  transform: translateY(-1px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .final-design-navigation > .header-social-navigation {
+  width: auto;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin: 0;
+  padding: 0 0 0 clamp(10px, 1.5vw, 20px);
+  border-top: 0;
+  border-left: 1px solid rgba(24, 23, 22, .14);
+}
+
+[data-public-design="visceral-brutalist-archive"] .header-social-navigation a {
+  width: 36px;
+  height: 36px;
+  min-height: 36px;
+  flex: 0 0 36px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--production-ink);
+  line-height: 0;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .header-social-navigation a svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+
+[data-public-design="visceral-brutalist-archive"] .header-social-navigation a:hover,
+[data-public-design="visceral-brutalist-archive"] .header-social-navigation a:focus-visible {
+  border-color: var(--brand-green);
+  background: var(--brand-green);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .final-design-menu-toggle {
+  display: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .production-editorial-header a:focus-visible,
+[data-public-design="visceral-brutalist-archive"] .production-editorial-header button:focus-visible,
+[data-public-design="visceral-brutalist-archive"] .figma-footer a:focus-visible {
+  outline: 3px solid var(--brand-pink);
+  outline-offset: 3px;
+}
+
+/* Footer keeps the existing information while giving it a quieter editorial frame. */
+[data-public-design="visceral-brutalist-archive"] .figma-footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid var(--production-ink);
+  background:
+    radial-gradient(circle at 7% 16%, rgba(49, 83, 50, .64), transparent 34%),
+    linear-gradient(135deg, #0b1d11 0%, #102718 52%, #173820 100%);
+  color: #fff;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__inner {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(250px, 1.25fr) minmax(120px, .55fr) minmax(120px, .55fr) minmax(230px, .9fr);
+  align-items: start;
+  gap: clamp(34px, 5vw, 72px);
+  padding: clamp(70px, 8vw, 104px) 0 clamp(54px, 6vw, 78px);
+  text-align: left;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__brand,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__links,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__socials {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__brand {
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 18px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__brand img,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__logo {
+  width: 148px;
+  height: auto;
+  margin: 0 0 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  object-fit: contain;
+  background: transparent;
+  box-shadow: none;
+  filter: brightness(0) invert(1);
+  opacity: .96;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__brand p,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__socials > p {
+  max-width: 34ch;
+  margin: 0;
+  color: rgba(255, 255, 255, .72);
+  font-family: var(--production-ui);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__cta {
+  width: fit-content;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 6px;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 999px;
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  font-family: var(--production-ui);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .055em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__cta:hover,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__cta:focus-visible {
+  border-color: #fff;
+  background: #fff;
+  color: var(--brand-green);
+  transform: translateY(-2px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__links,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__socials {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 18px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__links h2,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__socials h2 {
+  position: relative;
+  margin: 0;
+  padding: 0 0 13px;
+  border: 0;
+  color: #fff;
+  font-family: var(--production-ui);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .15em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__links h2::after,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__socials h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 34px;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--brand-pink);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__links nav {
+  display: grid;
+  align-items: start;
+  gap: 3px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__links nav a {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3px 0;
+  color: rgba(255, 255, 255, .76);
+  font-family: var(--production-ui);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 150ms ease, transform 150ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__links nav a:hover,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__links nav a:focus-visible {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__socials {
+  justify-items: start;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  margin-top: 4px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__social-links a {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .32);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .045);
+  color: #fff;
+  line-height: 0;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__social-links a svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+  flex: 0 0 19px;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__social-links a:hover,
+[data-public-design="visceral-brutalist-archive"] .figma-footer__social-links a:focus-visible {
+  border-color: var(--brand-pink);
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  transform: translateY(-3px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__bottom {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0 28px;
+  border-top: 1px solid rgba(255, 255, 255, .18);
+  background: transparent;
+  color: rgba(255, 255, 255, .54);
+  font-family: var(--production-ui);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-footer__bottom p {
+  margin: 0;
+}
+
+@keyframes global-shell-menu-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -7px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 1101px) {
+  [data-public-design="visceral-brutalist-archive"] .header-topline {
+    width: calc(100% - 32px);
+    grid-template-columns: 116px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-mark {
+    width: 114px;
+    height: 62px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-logo {
+    width: 108px;
+    height: 60px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .final-design-navigation {
+    gap: 10px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a {
+    padding-right: 7px;
+    padding-left: 7px;
+    font-size: 11px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .final-design-navigation > .header-social-navigation {
+    gap: 1px;
+    padding-left: 8px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-social-navigation a {
+    width: 32px;
+    height: 32px;
+    min-height: 32px;
+    flex-basis: 32px;
+  }
+}
+
+@media (max-width: 1100px) {
+  [data-public-design="visceral-brutalist-archive"] .production-editorial-header {
+    min-height: 76px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline {
+    width: calc(100% - 32px);
+    min-height: 72px;
+    grid-template-columns: minmax(0, 1fr) 46px;
+    gap: 14px;
+    padding: 6px 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-mark {
+    width: 124px;
+    height: 62px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-logo {
+    width: 116px;
+    height: 60px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .final-design-menu-toggle {
+    width: 46px;
+    height: 46px;
+    min-height: 46px;
+    display: inline-grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid #102718;
+    border-radius: 999px;
+    background: #102718;
+    color: #fff;
+    box-shadow: none;
+    transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .final-design-menu-toggle:hover,
+  [data-public-design="visceral-brutalist-archive"] .final-design-menu-toggle:focus-visible,
+  [data-public-design="visceral-brutalist-archive"] .final-design-menu-toggle[aria-expanded="true"] {
+    border-color: var(--brand-pink);
+    background: var(--brand-pink);
+    color: var(--production-ink);
+    transform: translateY(-1px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .final-design-navigation {
+    position: fixed;
+    top: 76px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 75;
+    width: 100%;
+    display: none;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 22px clamp(18px, 5vw, 42px) 44px;
+    border-top: 1px solid rgba(24, 23, 22, .14);
+    background: rgba(250, 249, 245, .99);
+    box-shadow: 0 20px 40px rgba(16, 39, 24, .14);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .final-design-navigation[data-mobile-open="false"] {
+    display: none;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .final-design-navigation[data-mobile-open="true"] {
+    display: grid;
+    animation: global-mobile-menu-in 180ms ease-out both;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-navigation-cluster,
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline {
+    width: 100%;
+    min-height: 58px;
+    border-bottom: 1px solid rgba(24, 23, 22, .14);
+    border-radius: 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a {
+    min-height: 58px;
+    justify-content: flex-start;
+    padding: 0 8px;
+    border-radius: 0;
+    font-family: var(--production-display);
+    font-size: clamp(22px, 3.2vw, 29px);
+    font-weight: 800;
+    letter-spacing: -.015em;
+    text-transform: none;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a::after,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a::after {
+    display: none;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a:hover,
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a:focus-visible,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a:hover,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a:focus-visible {
+    background: transparent;
+    color: var(--brand-green);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a[aria-current="page"],
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a[aria-current="page"] {
+    padding-left: 16px;
+    background: rgba(49, 83, 50, .09);
+    color: var(--brand-green);
+    border-radius: 12px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 50px;
+    align-items: center;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle {
+    width: 42px;
+    height: 42px;
+    min-height: 42px;
+    margin: 0;
+    justify-self: end;
+    border-color: rgba(49, 83, 50, .22);
+    background: rgba(49, 83, 50, .07);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-menu {
+    position: static;
+    width: 100%;
+    margin: 10px 0 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+    padding: 10px;
+    border: 0;
+    border-radius: 12px;
+    background: #102718;
+    box-shadow: none;
+    transform: none;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-menu[data-open="true"] {
+    animation: global-mobile-submenu-in 160ms ease-out both;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-menu a {
+    min-height: 48px;
+    padding: 11px 12px;
+    border-bottom: 0;
+    color: rgba(255, 255, 255, .82);
+    font-size: 14px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .final-design-navigation > .header-social-navigation {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 9px;
+    margin: 0;
+    padding: 18px 0 0;
+    border-top: 1px solid rgba(24, 23, 22, .14);
+    border-left: 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-social-navigation a {
+    width: 42px;
+    height: 42px;
+    min-height: 42px;
+    flex-basis: 42px;
+    border-color: rgba(49, 83, 50, .28);
+    color: var(--brand-green);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__inner {
+    grid-template-columns: minmax(240px, 1.15fr) repeat(2, minmax(120px, .6fr));
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__socials {
+    grid-column: 1 / -1;
+    padding-top: 8px;
+  }
+}
+
+@keyframes global-mobile-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes global-mobile-submenu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px) {
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__inner {
+    width: calc(100% - 36px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42px 28px;
+    padding: 64px 0 52px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__brand,
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__socials {
+    grid-column: 1 / -1;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__brand {
+    max-width: 460px;
+    padding-bottom: 8px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__socials {
+    padding-top: 8px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__bottom {
+    width: calc(100% - 36px);
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+@media (max-width: 560px) {
+  [data-public-design="visceral-brutalist-archive"] .production-editorial-header {
+    min-height: 72px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline {
+    width: calc(100% - 24px);
+    min-height: 68px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-mark {
+    width: 110px;
+    height: 56px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .header-topline .brand-logo {
+    width: 104px;
+    height: 54px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .final-design-navigation {
+    top: 72px;
+    gap: 20px;
+    padding: 16px 16px 36px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline {
+    min-height: 54px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-public-navigation > a,
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__topline > a {
+    min-height: 54px;
+    font-size: clamp(21px, 7vw, 26px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-menu {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding: 58px 0 44px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__brand,
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__links,
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__socials {
+    grid-column: auto;
+    padding: 0 0 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, .13);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__links,
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__socials {
+    padding-top: 30px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__socials {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__brand img,
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__logo {
+    width: 132px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-footer__bottom {
+    padding-top: 22px;
+    padding-bottom: 24px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-menu[data-open="true"],
+  [data-public-design="visceral-brutalist-archive"] .final-design-navigation[data-mobile-open="true"],
+  [data-public-design="visceral-brutalist-archive"] .primary-nav-dropdown__toggle svg,
+  [data-public-design="visceral-brutalist-archive"] .header-social-navigation a,
+  [data-public-design="visceral-brutalist-archive"] .figma-footer a {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* August 2026 shared contributor profile: calm editorial biography and archive. */
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] {
+  width: 100%;
+  max-width: none;
+  display: block;
+  overflow: clip;
+  background: #ffffff;
+  color: var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-breadcrumb {
+  width: min(1240px, calc(100% - 48px));
+  min-height: 58px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 0;
+  border: 0;
+  color: rgba(24, 23, 22, .58);
+  font-family: var(--production-ui);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-breadcrumb a {
+  color: var(--brand-green);
+  text-decoration: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-breadcrumb a:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-breadcrumb a:focus-visible {
+  color: var(--production-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-pink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero {
+  position: relative;
+  isolation: isolate;
+  width: min(1240px, calc(100% - 48px));
+  min-height: 610px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(330px, .82fr) minmax(0, 1.18fr);
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--production-ink);
+  border-radius: 0;
+  background: #102718;
+  box-shadow: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: clamp(-90px, -5vw, -40px);
+  bottom: clamp(-110px, -7vw, -60px);
+  width: clamp(180px, 20vw, 300px);
+  aspect-ratio: 1;
+  border: 3px solid rgba(255, 255, 255, .12);
+  border-radius: 50%;
+  background: rgba(49, 83, 50, .48);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero > img {
+  width: 100%;
+  height: 100%;
+  min-height: 610px;
+  margin: 0;
+  border: 0;
+  border-right: 2px solid var(--production-ink);
+  object-fit: cover;
+  object-position: center top;
+  background: #f0efe9;
+  filter: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero > div {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(42px, 5.4vw, 76px);
+  background: transparent;
+  color: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero > div > .eyebrow {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 20px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: 0;
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  font-size: 10px;
+  letter-spacing: .1em;
+  line-height: 1.2;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero h1 {
+  max-width: 820px;
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--production-display);
+  font-size: clamp(54px, 6.6vw, 88px);
+  font-weight: 600;
+  line-height: .92;
+  letter-spacing: -.045em;
+  text-transform: none;
+  text-wrap: balance;
+  overflow-wrap: normal;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-detail-bio {
+  max-width: 64ch;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, .8);
+  font-family: var(--production-display);
+  font-size: clamp(16px, 1.45vw, 19px);
+  font-weight: 400;
+  line-height: 1.72;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons {
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, .22);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__label {
+  color: rgba(255, 255, 255, .68);
+  font-family: var(--production-ui);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items > a,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items > span {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .36);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  color: #ffffff;
+  line-height: 0;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items > a svg,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items > span svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items > a:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items > a:focus-visible {
+  border-color: var(--brand-pink);
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  transform: translateY(-2px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icon--unavailable {
+  cursor: not-allowed;
+  opacity: .3;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-supporting-links {
+  margin: 18px 0 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 0;
+  border: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-supporting-links a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 0;
+  background: rgba(255, 255, 255, .06);
+  color: rgba(255, 255, 255, .86);
+  font-family: var(--production-ui);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-supporting-links a:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-supporting-links a:focus-visible {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: var(--brand-green);
+  transform: translateY(-2px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: clamp(82px, 9vw, 120px) 0 clamp(88px, 10vw, 132px);
+  border: 0;
+  background: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row {
+  margin: 0 0 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 0 24px;
+  border: 0;
+  border-bottom: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row > div {
+  display: grid;
+  gap: 9px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row .eyebrow {
+  margin: 0;
+  color: var(--brand-green);
+  font-size: 10px;
+  letter-spacing: .13em;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row h2 {
+  margin: 0;
+  color: var(--production-ink);
+  font-family: var(--production-display);
+  font-size: clamp(42px, 5.2vw, 68px);
+  font-weight: 600;
+  line-height: .95;
+  letter-spacing: -.035em;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row > a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid var(--brand-green);
+  border-radius: 0;
+  background: transparent;
+  color: var(--brand-green);
+  font-family: var(--production-ui);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row > a:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row > a:focus-visible {
+  background: var(--brand-green);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card--compact {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(24, 23, 22, .2);
+  border-radius: 0;
+  background: #faf9f5;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card--compact:hover {
+  border-color: var(--brand-green);
+  transform: translateY(-3px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card__media {
+  min-height: 100%;
+  border: 0;
+  border-radius: 0;
+  background: #ecebe5;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card__media img,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card__media video {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  aspect-ratio: auto;
+  display: block;
+  object-fit: cover;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card__body {
+  min-width: 0;
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card__body h3 {
+  margin: 0;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.02;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card__body > p:not(.eyebrow):not(.article-card__meta) {
+  margin: 0;
+  color: rgba(24, 23, 22, .68);
+  line-height: 1.55;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-empty-state {
+  width: 100%;
+  max-width: none;
+  min-height: 190px;
+  display: grid;
+  place-items: center;
+  padding: 36px;
+  border: 1px solid rgba(49, 83, 50, .24);
+  border-radius: 0;
+  background: linear-gradient(135deg, rgba(49, 83, 50, .08), rgba(49, 83, 50, .025));
+  color: rgba(24, 23, 22, .66);
+  text-align: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-empty-state p {
+  max-width: 48ch;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 34px;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-media-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(24, 23, 22, .2);
+  border-radius: 0;
+  background: #faf9f5;
+  color: var(--production-ink);
+  text-decoration: none;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-media-card:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-media-card:focus-visible {
+  border-color: var(--brand-green);
+  transform: translateY(-3px);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-media-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  object-fit: cover;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-media-card span {
+  padding: 16px 18px;
+  border: 0;
+  border-top: 1px solid rgba(24, 23, 22, .16);
+  font-family: var(--production-ui);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto clamp(84px, 9vw, 120px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px 54px;
+  padding: clamp(48px, 6vw, 76px);
+  overflow: hidden;
+  border: 2px solid var(--production-ink);
+  border-radius: 0;
+  background: #102718;
+  color: #ffffff;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta .eyebrow,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta h2,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta > p:not(.eyebrow) {
+  grid-column: 1;
+  max-width: 820px;
+  margin: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta .eyebrow {
+  color: var(--brand-pink);
+  font-size: 10px;
+  letter-spacing: .13em;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta h2 {
+  color: #ffffff;
+  font-family: var(--production-display);
+  font-size: clamp(40px, 5vw, 66px);
+  font-weight: 600;
+  line-height: .96;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta > p:not(.eyebrow) {
+  max-width: 62ch;
+  color: rgba(255, 255, 255, .7);
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.6;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta > a {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  min-width: 154px;
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0;
+  padding: 12px 20px;
+  border: 1px solid var(--brand-pink);
+  border-radius: 0;
+  background: var(--brand-pink);
+  color: var(--production-ink);
+  font-family: var(--production-ui);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .045em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta > a:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta > a:focus-visible {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: var(--brand-green);
+  transform: translateY(-2px);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-profile-detail[data-state="not-found"] {
+  width: min(760px, calc(100% - 48px));
+  min-height: min(620px, calc(100svh - 180px));
+  margin: 64px auto 96px;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 18px;
+  padding: clamp(40px, 7vw, 80px);
+  border: 1px solid rgba(49, 83, 50, .24);
+  border-radius: 0;
+  background: rgba(49, 83, 50, .07);
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-profile-detail[data-state="not-found"] > * {
+  margin: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-profile-detail[data-state="not-found"] h1 {
+  font-size: clamp(44px, 7vw, 72px);
+  line-height: .95;
+}
+
+[data-public-design="visceral-brutalist-archive"] .figma-profile-detail[data-state="not-found"] > a {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 0;
+  background: var(--brand-green);
+  color: #ffffff;
+  font-family: var(--production-ui);
+  font-size: 11px;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero {
+    min-height: 0;
+    grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero > img {
+    min-height: 560px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero > div {
+    padding: 38px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero h1 {
+    font-size: clamp(48px, 7.2vw, 68px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-detail-bio {
+    font-size: 16px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta > a {
+    grid-column: 1;
+    grid-row: auto;
+    width: fit-content;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 760px) {
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-breadcrumb,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta {
+    width: calc(100% - 36px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero {
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero > img {
+    height: clamp(380px, 112vw, 580px);
+    min-height: 0;
+    aspect-ratio: auto;
+    border-right: 0;
+    border-bottom: 2px solid var(--production-ink);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero > div {
+    padding: 38px 28px 42px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero h1 {
+    font-size: clamp(46px, 12vw, 66px);
+    overflow-wrap: anywhere;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-detail-bio {
+    margin-top: 24px;
+    line-height: 1.65;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section {
+    padding-top: 76px;
+    padding-bottom: 88px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row > a {
+    width: 100%;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card--compact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card__media img,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card__media video {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta {
+    margin-bottom: 84px;
+    padding: 48px 30px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-breadcrumb,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta,
+  [data-public-design="visceral-brutalist-archive"] .figma-profile-detail[data-state="not-found"] {
+    width: calc(100% - 24px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-breadcrumb {
+    min-height: 52px;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero > img {
+    height: min(124vw, 520px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero > div {
+    padding: 32px 20px 36px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-editorial-hero h1 {
+    font-size: clamp(42px, 14vw, 58px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items {
+    width: auto;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items > a,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items > span {
+    flex: 0 0 42px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-supporting-links {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-supporting-links a {
+    width: 100%;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-work-section .section-heading-row h2 {
+    font-size: clamp(38px, 12vw, 50px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-empty-state {
+    min-height: 170px;
+    padding: 28px 20px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta {
+    padding: 42px 22px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta h2 {
+    font-size: clamp(38px, 11.5vw, 50px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta > a {
+    width: 100%;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .figma-profile-detail[data-state="not-found"] {
+    margin-top: 36px;
+    margin-bottom: 72px;
+    padding: 36px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-social-icons__items > a,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-supporting-links a,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .figma-published-story-feed .article-card--compact,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-media-card,
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="profile-detail-v4"] .profile-contact-cta > a {
+    transition: none;
+  }
+}
+
+/* August 2026 article hero: title and byline share one clean editorial row. */
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero {
+  width: min(1240px, calc(100% - 48px));
+  min-height: 470px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, .7fr);
+  align-items: stretch;
+  justify-items: stretch;
+  gap: 0;
+  padding: clamp(58px, 7vw, 94px) 0 clamp(54px, 6.5vw, 88px);
+  border: 0;
+  background: #ffffff;
+  text-align: left;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: clamp(38px, 5vw, 72px);
+  text-align: center;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__copy h1 {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  color: var(--production-ink);
+  font-family: var(--production-display);
+  font-size: clamp(52px, 6.15vw, 88px);
+  font-weight: 500;
+  line-height: .91;
+  letter-spacing: -.055em;
+  text-align: center;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__copy > p {
+  width: 100%;
+  max-width: 680px;
+  margin: 30px auto 0;
+  color: #4c4c47;
+  font-family: var(--production-serif);
+  font-size: clamp(18px, 1.7vw, 23px);
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: balance;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__footer {
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 22px;
+  padding: 12px 0 12px clamp(32px, 4vw, 54px);
+  border-left: 2px solid var(--production-ink);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-byline {
+  width: 100%;
+  margin: 0;
+  padding: 0 0 22px;
+  border-bottom: 1px solid rgba(24, 23, 22, .22);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-byline > a {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--production-ink);
+  text-decoration: none;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-byline > a:hover strong,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-byline > a:focus-visible strong {
+  color: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta {
+  position: static;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta > a,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta > span,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta > time,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta > a:first-child {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(24, 23, 22, .14);
+  background: transparent;
+  color: var(--production-ink);
+  font-family: var(--production-ui);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .085em;
+  line-height: 1.3;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta > a:first-child {
+  color: var(--brand-green);
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta > :last-child {
+  border-bottom: 0;
+}
+
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta > a:hover,
+[data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta > a:focus-visible {
+  color: var(--brand-pink);
+}
+
+@media (max-width: 980px) {
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero {
+    grid-template-columns: minmax(0, 1.45fr) minmax(260px, .65fr);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__copy {
+    padding-right: 34px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__copy h1 {
+    font-size: clamp(48px, 7.2vw, 68px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__footer {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  [data-public-design="visceral-brutalist-archive"] .article-reader-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    text-align: left;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] .article-reader-breadcrumb > a,
+  [data-public-design="visceral-brutalist-archive"] .article-reader-breadcrumb > span {
+    width: auto;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero {
+    width: calc(100% - 36px);
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 50px 0 48px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__copy {
+    padding: 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__copy h1 {
+    font-size: clamp(43px, 13vw, 62px);
+    line-height: .92;
+    overflow-wrap: anywhere;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__copy > p {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero__footer {
+    width: min(440px, 100%);
+    justify-self: center;
+    min-height: 0;
+    margin-top: 36px;
+    padding: 30px 0 0;
+    border-top: 2px solid var(--production-ink);
+    border-left: 0;
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-hero {
+    width: calc(100% - 24px);
+  }
+
+  [data-public-design="visceral-brutalist-archive"] [data-design-reference="article-detail-v4"] .article-reader-meta {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

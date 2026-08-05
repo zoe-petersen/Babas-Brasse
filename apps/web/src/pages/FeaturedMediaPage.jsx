@@ -10,6 +10,14 @@ export function FeaturedMediaPage({ fixtures = launchFixtures, routePath = "/pho
 
   return (
     <section className="figma-public-page figma-featured-page photography-moodboard-page" data-page="featured-media" data-design-reference="featured-media-gallery-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-prototype-file={model.route.prototypeFile}>
+      <header data-section="photography-intro" className="figma-page-intro photography-editorial-hero">
+        <div className="photography-editorial-hero__copy">
+          <h1>{model.hero.title}</h1>
+          <p>{model.hero.dek}</p>
+        </div>
+        <span className="photography-editorial-hero__accent" aria-hidden="true" />
+      </header>
+
       <section data-section="media-gallery" className="figma-content-section featured-media-masonry-shell photography-moodboard-shell" data-state={sections.mediaGallery.state}>
         <div className="section-heading-row">
           <h2>{sections.mediaGallery.heading}</h2>
