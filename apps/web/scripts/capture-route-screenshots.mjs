@@ -13,9 +13,10 @@ const routes = [
   { id: "content", path: "/content" },
   { id: "contributors", path: "/contributors" },
   { id: "visceral-mag", path: "/visceral-mag" },
-  { id: "article-detail", path: "/visceral-mag/send-a-text-before-you-knock" },
+  { id: "article-detail", path: "/visceral-mag/inside-the-rehearsal-room" },
   { id: "profile-detail", path: "/people/visceral-contributor" },
   { id: "search", path: "/search" },
+  { id: "category-page", path: "/search?category=reviews&topic=theatre" },
   { id: "featured", path: "/featured" },
   { id: "contact", path: "/contact" },
   { id: "admin-dashboard", path: "/admin" }

@@ -14,14 +14,37 @@ function getAuthor(profiles, profileId) {
   };
 }
 
-function relatedArticleSummary(article) {
+function relatedArticleSummary(article, fixtures) {
+  const category = getCategory(fixtures.categories, article.categoryId);
+  const author = getAuthor(fixtures.profiles, article.authorProfileId);
+
   return {
     id: article.id,
     title: article.title,
     slug: article.slug,
     dek: article.dek,
-    href: `/visceral-mag/${article.slug}`
+    publishedAt: article.publishedAt,
+    featuredImage: article.featuredImage || null,
+    href: `/visceral-mag/${article.slug}`,
+    category: {
+      label: category.label,
+      slug: category.slug
+    },
+    author: {
+      name: author.name,
+      slug: author.slug,
+      href: `/people/${author.slug}`
+    }
   };
+}
+
+function readingTime(bodyBlocks) {
+  const wordCount = bodyBlocks.join(" ").trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(wordCount / 220));
+}
+
+function authorImage(image) {
+  return image?.url && !image.url.includes("profile-placeholder") ? image : null;
 }
 
 export function getArticleDetailRoute(articleOrSlug) {
@@ -79,8 +102,9 @@ export function buildArticleDetailRouteModel(fixtures, slug = "send-a-text-befor
       href: `/visceral-mag/${article.slug}`,
       dek: article.dek,
       publishedAt: article.publishedAt,
-      featuredImage: article.featuredImage,
-      bodyBlocks: [...article.bodyBlocks],
+      readingMinutes: readingTime(article.bodyBlocks || []),
+      featuredImage: article.featuredImage || null,
+      bodyBlocks: [...(article.bodyBlocks || [])],
       category: {
         id: article.categoryId,
         label: category.label,
@@ -91,15 +115,17 @@ export function buildArticleDetailRouteModel(fixtures, slug = "send-a-text-befor
         id: article.authorProfileId,
         name: author.name,
         role: author.role,
+        shortBio: author.shortBio,
         slug: author.slug,
         href: `/people/${author.slug}`,
-        image: author.image || null
+        image: authorImage(author.image)
       }
     },
     relatedArticles: fixtures.articles
       .filter((item) => item.status === "published" && item.slug !== article.slug)
+      .filter((item) => item.categoryId === article.categoryId || item.featuredImage)
       .slice(0, 3)
-      .map(relatedArticleSummary),
+      .map((item) => relatedArticleSummary(item, fixtures)),
     comments: fixtures.comments
       .filter((comment) => comment.articleId === article.id && comment.status === "approved")
       .map((comment) => ({ id: comment.id, name: comment.name, body: comment.body, createdAt: comment.createdAt || null })),

@@ -43,13 +43,13 @@ export function CategoriesSearchPage({ fixtures = launchFixtures, query, categor
   const section = sectionCopy[activeTopic] || sectionCopy[normalizedCategory] || { ...hero, title: "Explore the magazine." };
 
   return (
-    <section className="figma-public-page figma-search-page" data-page="categories-search" data-design-reference="search-archive-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-state-note={model.stateNote} data-prototype-file={model.route.prototypeFile}>
-      <header data-section="search-intro" className="figma-page-intro">
+    <section className="figma-public-page figma-search-page category-results-page" data-page="categories-search" data-design-reference="search-archive-v4" data-route={model.route.path} data-generated={model.generatedFrom} data-state-note={model.stateNote} data-prototype-file={model.route.prototypeFile} data-category={normalizedCategory || activeTopic || "all"}>
+      <header data-section="search-intro" className="figma-page-intro category-results-hero">
         <h1>{section.title}</h1>
         <p>{section.dek}</p>
       </header>
 
-      <section data-section="search-results" className="figma-content-section" data-state={sections.results.state}>
+      <section data-section="search-results" className="figma-content-section category-results-section" data-state={sections.results.state}>
         <div className="category-results-toolbar">
           <h2 className="sr-only">{selectedCategory?.label || section.eyebrow || "Magazine"} articles</h2>
           <span className="search-result-count" aria-live="polite">{sections.results.items.length} {sections.results.items.length === 1 ? "article" : "articles"}</span>
